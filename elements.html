@@ -6,11 +6,364 @@
 -->
 <html>
 	<head>
-		<title>My Resume - Portfolio Showcase by Jawad Amin</title>
+		<title>How I Work - Portfolio Showcase by Jawad Amin</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.hiw {
+				--bg-1: #ead8c4;
+				--bg-2: #cfb294;
+				--line: rgba(122, 91, 60, 0.32);
+				--text: #2c3445;
+				--muted: #5f6474;
+				--blue: #2f7de0;
+				--cyan: #1aa6db;
+				--violet: #8a4dff;
+				--green: #33d69f;
+				color: var(--text);
+				background:
+					radial-gradient(70rem 35rem at 15% -10%, rgba(55, 151, 255, 0.16), transparent 60%),
+					radial-gradient(70rem 35rem at 95% 0%, rgba(141, 94, 255, 0.12), transparent 58%),
+					radial-gradient(46rem 20rem at 52% 56%, rgba(33, 212, 253, 0.12), transparent 70%),
+					linear-gradient(165deg, var(--bg-1), var(--bg-2));
+				border: 1px solid var(--line);
+				border-radius: 1.35rem;
+				overflow: hidden;
+				position: relative;
+			}
+			.hiw::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background:
+					repeating-linear-gradient(90deg, rgba(85, 110, 150, 0.05) 0 1px, transparent 1px 34px),
+					repeating-linear-gradient(0deg, rgba(85, 110, 150, 0.04) 0 1px, transparent 1px 34px);
+				mix-blend-mode: multiply;
+				pointer-events: none;
+			}
+			.hiw::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background:
+					linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.08) 30%, transparent 58%),
+					repeating-linear-gradient(180deg, rgba(70, 104, 151, 0.05) 0 2px, transparent 2px 6px);
+				background-size: 240% 100%, 100% 100%;
+				animation: hwSweep 5.8s linear infinite;
+				pointer-events: none;
+			}
+			.hiw .hw-wrap { padding: 2rem 1.2rem; max-width: 84rem; margin: 0 auto; }
+			.hiw h1, .hiw h2, .hiw h3, .hiw p { color: inherit; }
+			.hiw .hw-topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: .95rem; flex-wrap: wrap; }
+			.hiw .hw-name { margin: 0; font-size: 2.35rem; line-height: 1.06; }
+			.hiw .hw-name span { color: var(--blue); }
+			.hiw .hw-role { margin: .25rem 0 0; color: var(--muted); font-size: 1.1rem; }
+			.hiw .hw-role::after {
+				content: "";
+				display: block;
+				width: 15.5rem;
+				height: 2px;
+				margin-top: .7rem;
+				background: linear-gradient(90deg, rgba(98,146,255,.2), #ffd36e, rgba(98,146,255,.2));
+			}
+			.hiw .hw-nav { display: flex; gap: .55rem; flex-wrap: wrap; }
+			.hiw .hw-btn {
+				text-decoration: none;
+				color: #23314f;
+				border: 1px solid rgba(91, 124, 180, .4);
+				border-radius: .75rem;
+				padding: .58rem .9rem;
+				font-weight: 700;
+				position: relative;
+				transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+				background: rgba(255, 255, 255, .42);
+			}
+			.hiw .hw-btn:hover {
+				transform: translateY(-2px);
+				border-color: rgba(53, 146, 227, .75);
+				box-shadow: 0 0 0 1px rgba(53, 146, 227, .3), 0 10px 26px rgba(53, 146, 227, .28);
+			}
+			.hiw .hw-btn.cta {
+				background: linear-gradient(90deg,#2f7de0,#31bae6);
+				border-color: transparent;
+				color: #fff;
+			}
+			.hiw .hw-btn.ghost { background: transparent; }
+			.hiw .hw-btn.pulse::after {
+				content: "";
+				position: absolute;
+				inset: -2px;
+				border-radius: inherit;
+				border: 1px solid rgba(45, 147, 217, .35);
+				opacity: 0;
+				transition: opacity .25s ease;
+			}
+			.hiw .hw-btn.pulse:hover::after { opacity: 1; }
+			.hiw .hw-hero { display: grid; grid-template-columns: 1fr; gap: .95rem; margin-top: 1.2rem; align-items: stretch; }
+			.hiw .hw-left h2 { margin: 0 0 .6rem; font-size: 2.7rem; line-height: 1.08; letter-spacing: .01em; }
+			.hiw .hw-left h2 span { color: var(--cyan); }
+			.hiw .hw-lead { font-size: 1.12rem; color: #5c6480; max-width: 34rem; line-height: 1.45; }
+			.hiw .hw-pill { margin-top: .72rem; display: inline-flex; gap: .75rem; align-items: center; padding: .52rem .88rem; border-radius: 999px; border: 1px solid rgba(94,123,168,.35); background: rgba(255,255,255,.42); }
+			.hiw .hw-visual { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: center; }
+			.hiw .hw-process {
+				position: relative;
+				display: grid;
+				place-items: center;
+				min-height: 20.5rem;
+				border-radius: 1rem;
+				background: radial-gradient(circle at center, rgba(51, 157, 236, .2), rgba(255,255,255,.12) 60%);
+				border: 1px solid rgba(102, 138, 189, .35);
+				overflow: hidden;
+				box-shadow: inset 0 0 0 1px rgba(116, 158, 211, .38), 0 0 44px rgba(37, 132, 206, .2);
+			}
+			.hiw .hw-process::before {
+				content: "";
+				position: absolute;
+				width: 18rem;
+				height: 18rem;
+				border-radius: 999px;
+				border: 1px dashed rgba(81, 133, 193, .42);
+				animation: hwRotate 16s linear infinite;
+			}
+			.hiw .hw-process::after {
+				content: "";
+				position: absolute;
+				width: 14rem;
+				height: 14rem;
+				border-radius: 999px;
+				border: 1px dashed rgba(44, 171, 214, .32);
+				animation: hwRotateRev 12s linear infinite;
+			}
+			.hiw .hw-process .hw-dot {
+				position: absolute;
+				width: .5rem;
+				height: .5rem;
+				border-radius: 999px;
+				background: #46bcff;
+				box-shadow: 0 0 14px rgba(70, 188, 255, .95);
+				animation: hwPulse 1.6s ease-in-out infinite;
+				z-index: 2;
+			}
+			.hiw .hw-process .d1 { top: 23%; left: 19%; animation-delay: .2s; }
+			.hiw .hw-process .d2 { top: 16%; right: 24%; animation-delay: .6s; }
+			.hiw .hw-process .d3 { bottom: 18%; left: 29%; animation-delay: 1s; }
+			.hiw .hw-process .d4 { bottom: 25%; right: 17%; animation-delay: 1.4s; }
+			.hiw .hw-core {
+				width: 8.2rem;
+				height: 8.2rem;
+				border-radius: 999px;
+				border: 1px solid rgba(95, 141, 202, .55);
+				display: grid;
+				place-items: center;
+				text-align: center;
+				font-weight: 800;
+				letter-spacing: .02em;
+				box-shadow: 0 0 30px rgba(40, 130, 210, .25);
+				background: radial-gradient(circle at 30% 30%, rgba(84, 174, 234, .24), rgba(236, 247, 255, .86));
+				z-index: 2;
+				animation: hwCoreGlow 2.8s ease-in-out infinite;
+			}
+			.hiw .hw-node {
+				position: absolute;
+				padding: .32rem .65rem;
+				border-radius: 999px;
+				font-size: .8rem;
+				font-weight: 700;
+				border: 1px solid rgba(94, 137, 195, .45);
+				background: rgba(255, 255, 255, .62);
+				z-index: 2;
+				box-shadow: 0 0 14px rgba(69, 166, 232, .23);
+				animation: hwNodeFloat 3.2s ease-in-out infinite;
+			}
+			.hiw .n1 { top: 12%; left: 49%; transform: translateX(-50%); }
+			.hiw .n2 { top: 34%; right: 8%; animation-delay: .45s; }
+			.hiw .n3 { bottom: 21%; right: 12%; animation-delay: .9s; }
+			.hiw .n4 { bottom: 15%; left: 15%; animation-delay: 1.35s; }
+			.hiw .n5 { top: 35%; left: 8%; animation-delay: 1.8s; }
+			.hiw .hw-cards { margin-top: 1.25rem; display: grid; grid-template-columns: 1fr; gap: .72rem; }
+			.hiw .hw-card {
+				border: 1px solid rgba(102, 134, 184, .35);
+				border-radius: .95rem;
+				padding: .9rem;
+				background: rgba(255, 255, 255, .52);
+				transition: transform .25s ease, box-shadow .28s ease, border-color .25s ease;
+				position: relative;
+				overflow: hidden;
+				animation: hwCardFloat 5.4s ease-in-out infinite;
+			}
+			.hiw .hw-card::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background:
+					linear-gradient(130deg, rgba(255,255,255,.35), transparent 42%),
+					repeating-linear-gradient(90deg, rgba(89, 132, 187, .06) 0 1px, transparent 1px 22px);
+				pointer-events: none;
+			}
+			.hiw .hw-card::after {
+				content: "";
+				position: absolute;
+				left: 18%;
+				right: 18%;
+				bottom: 0.45rem;
+				height: 3px;
+				border-radius: 999px;
+				background: rgba(91, 173, 255, .7);
+			}
+			.hiw .hw-card:hover {
+				transform: translateY(-6px) scale(1.01);
+				border-color: rgba(95, 186, 255, .7);
+				box-shadow: 0 14px 26px rgba(57, 102, 168, .26);
+			}
+			.hiw .hw-cards .hw-card:nth-child(1) { box-shadow: inset 0 0 0 1px rgba(255, 184, 82, .15), 0 0 24px rgba(255, 162, 62, .16); }
+			.hiw .hw-cards .hw-card:nth-child(1)::after { background: #ffbf5d; }
+			.hiw .hw-cards .hw-card:nth-child(2) { box-shadow: inset 0 0 0 1px rgba(80, 188, 255, .15), 0 0 24px rgba(59, 162, 255, .16); }
+			.hiw .hw-cards .hw-card:nth-child(2)::after { background: #57c8ff; }
+			.hiw .hw-cards .hw-card:nth-child(3) { box-shadow: inset 0 0 0 1px rgba(80, 255, 196, .15), 0 0 24px rgba(52, 221, 170, .16); }
+			.hiw .hw-cards .hw-card:nth-child(3)::after { background: #46e8b6; }
+			.hiw .hw-cards .hw-card:nth-child(4) { box-shadow: inset 0 0 0 1px rgba(205, 96, 255, .15), 0 0 24px rgba(194, 89, 255, .16); }
+			.hiw .hw-cards .hw-card:nth-child(4)::after { background: #d280ff; }
+			.hiw .hw-cards .hw-card:nth-child(5) { box-shadow: inset 0 0 0 1px rgba(255, 169, 79, .15), 0 0 24px rgba(255, 145, 67, .16); }
+			.hiw .hw-cards .hw-card:nth-child(5)::after { background: #ffa65e; }
+			.hiw .hw-card h3 { margin: 0; font-size: 1.05rem; }
+			.hiw .hw-card p { margin: .25rem 0 0; color: var(--muted); }
+			.hiw .hw-card h3, .hiw .hw-card p { min-height: 2.15rem; }
+			.hiw .hw-stats { margin-top: .75rem; display: grid; grid-template-columns: 1fr; gap: .62rem; color: #36415b; }
+			.hiw .hw-stat {
+				border: 1px solid rgba(102, 134, 184, .35);
+				border-radius: .8rem;
+				padding: .82rem .85rem;
+				background: rgba(255, 255, 255, .56);
+				display: flex;
+				align-items: center;
+				gap: .62rem;
+			}
+			.hiw .hw-stat i {
+				width: 2rem;
+				height: 2rem;
+				border-radius: 999px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(61, 143, 216, .15);
+				border: 1px solid rgba(93, 152, 213, .5);
+				color: #2f7de0;
+				flex-shrink: 0;
+			}
+			.hiw .hw-stat strong { font-size: 1.55rem; color: #ffd57a; margin-right: .35rem; }
+			.hiw .hw-bottom { margin-top: 1rem; display: flex; gap: .62rem; flex-wrap: wrap; }
+			.hiw .hw-bottom a { text-decoration: none; border-radius: .75rem; padding: .68rem .95rem; font-weight: 700; }
+			.hiw .hw-bottom .primary { color: #fff; background: linear-gradient(90deg, #257cff, #35b2ff); border: 1px solid transparent; }
+			.hiw .hw-bottom .secondary { color: #2d3c5a; border: 1px solid rgba(91,124,180,.42); background: rgba(255,255,255,.4); }
+			.hiw .hw-bottom .tertiary { color: #2d3c5a; border: 1px solid rgba(91,124,180,.42); background: rgba(255,255,255,.4); }
+			.hiw .hw-bottom a { transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease; }
+			.hiw .hw-bottom a:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(57, 102, 168, .2); border-color: rgba(53,146,227,.72); }
+			.hiw .hw-bottom .primary { position: relative; overflow: hidden; }
+			.hiw .hw-bottom .primary::after {
+				content: "";
+				position: absolute;
+				top: -30%;
+				left: -40%;
+				width: 35%;
+				height: 160%;
+				background: rgba(255,255,255,.28);
+				transform: rotate(20deg);
+				animation: hwBtnShine 3.8s ease-in-out infinite;
+			}
+			@keyframes hwSweep {
+				0% { background-position: 120% 0, 0 0; }
+				100% { background-position: -120% 0, 0 0; }
+			}
+			@keyframes hwRotate { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
+			@keyframes hwRotateRev { from { transform: rotate(360deg);} to { transform: rotate(0deg);} }
+			@keyframes hwNodeFloat {
+				0%, 100% { transform: translateY(0); }
+				50% { transform: translateY(-4px); }
+			}
+			@keyframes hwCardFloat {
+				0%, 100% { transform: translateY(0); }
+				50% { transform: translateY(-2px); }
+			}
+			@keyframes hwCoreGlow {
+				0%, 100% { box-shadow: 0 0 30px rgba(40, 130, 210, .22); }
+				50% { box-shadow: 0 0 44px rgba(40, 130, 210, .4); }
+			}
+			@keyframes hwPulse {
+				0%, 100% { transform: scale(1); opacity: .75; }
+				50% { transform: scale(1.4); opacity: 1; }
+			}
+			@keyframes hwBtnShine {
+				0%, 65% { left: -45%; }
+				100% { left: 125%; }
+			}
+			#footer {
+				margin-top: 0;
+				background: linear-gradient(165deg, #efe3d4, #dcc5ad);
+				border-top: 2px solid rgba(111, 81, 52, 0.34);
+			}
+			#main {
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+			#main > .post {
+				margin-bottom: 0;
+			}
+			#footer .split.contact > section {
+				border-color: rgba(122, 91, 60, 0.28);
+			}
+			#footer h3 {
+				color: #3b2d1f;
+			}
+			#footer p,
+			#footer a {
+				color: #53402f;
+			}
+			#footer .icons.alt a {
+				color: #3e516f;
+			}
+			@media screen and (min-width: 860px) {
+				.hiw .hw-wrap { padding: 2.35rem 2.4rem 2.1rem; }
+				.hiw .hw-name { font-size: 2.65rem; }
+				.hiw .hw-hero { grid-template-columns: 1fr 1fr; align-items: center; gap: 1.2rem; }
+				.hiw .hw-left h2 { font-size: 3.3rem; }
+				.hiw .hw-process { min-height: 21.2rem; }
+				.hiw .hw-cards { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+				.hiw .hw-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+				.hiw .hw-card { min-height: 8.6rem; }
+			}
+			@media screen and (min-width: 1200px) {
+				.hiw .hw-wrap { padding: 2.55rem 2.7rem 2.25rem; }
+				.hiw .hw-hero { gap: 1.45rem; }
+				.hiw .hw-process { min-height: 22rem; }
+			}
+			@media screen and (max-width: 560px) {
+				.hiw .hw-wrap { padding: 1.45rem .95rem; }
+				.hiw .hw-name { font-size: 2rem; }
+				.hiw .hw-role { font-size: 1rem; }
+				.hiw .hw-role::after { width: 12.2rem; }
+				.hiw .hw-left h2 { font-size: 2.15rem; }
+				.hiw .hw-lead { font-size: 1rem; }
+				.hiw .hw-pill { font-size: .9rem; }
+				.hiw .hw-btn { width: 100%; justify-content: center; }
+				.hiw .hw-process { min-height: 18.2rem; }
+				.hiw .hw-node { font-size: .72rem; }
+				.hiw .hw-bottom a { width: 100%; text-align: center; }
+			}
+			@media (prefers-reduced-motion: reduce) {
+				.hiw::after,
+				.hiw .hw-process::before,
+				.hiw .hw-process::after,
+				.hiw .hw-process .hw-dot,
+				.hiw .hw-core,
+				.hiw .hw-node,
+				.hiw .hw-card,
+				.hiw .hw-bottom .primary::after {
+					animation: none !important;
+				}
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -25,207 +378,112 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="elements.html">My Resume</a></li>
-							<li><a href="generic.html">About Me</a></li>
 							<li><a href="index.html">Projects</a></li>
-							
+							<li><a href="generic.html">About Me</a></li>
+							<li class="active"><a href="elements.html">How I Work</a></li>
 						</ul>
 						<ul class="icons">
-							
 							<li><a href="https://www.facebook.com/jawad.amin.35/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 							<li><a href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-							<li><a href="https://github.com/J-Amin1011101" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/Jawad-CapabilityWise" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
+						<section class="post hiw" id="how-i-work">
+							<div class="hw-wrap">
+								<div class="hw-topbar">
+									<div>
+										<h1 class="hw-name">Jawad <span>Amin</span></h1>
+										<p class="hw-role">Cloud • AI • Full-Stack Engineer</p>
+									</div>
+									<div class="hw-nav">
+										<a class="hw-btn pulse" href="index.html">Projects</a>
+										<a class="hw-btn ghost" href="#footer">Contact</a>
+										<a class="hw-btn ghost pulse" href="generic.html">About Me</a>
+										<a class="hw-btn cta pulse" href="Jawad_Amin_Tech_Resume_Polished.html">Download Resume</a>
+									</div>
+								</div>
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<h1>Curriculum<br />
-									 Vitae</h1>
-								</header>
-
-								<!-- Text stuff -->
-								<p><span class="image right"><img src="images/image--001.jpg" alt="" /></span></p>
-									<h2>Career Objective</h2>
-									<p>Looking for an organization where I can use my academical knowledge, enhance my knowledge about trending technology and put everything towards honing my skill.</p>
-									<hr />
-									<h2>Educational Qualifications</h2>
-									<h3>Bachelor in Computer Science</h3>
-									<li>Name of The Institution : <a href="https://www.bracu.ac.bd/">Brac University</a></li>
-									<li>Department : Computer Science & Engineering</li>
-									<li>Duration : 2013-2018</li>
-									<li>CGPA Obtained : 2.77</li>
-									<hr />
-									<h3>Higher Secondary Certificate</h3>
-									<li>Name of The Institution : <a href="https://www.bafsd.edu.bd/">B.A.F Shaheen College, Dhaka</a></li>
-									<li>Group : Science</li>
-									<li>Year of Passing : 2012</li>
-									<li>Result : GPA 4.60/5</li>
-									<hr />
-									<h3>Secondary School Certificate</h3>
-									<li>Name of The Institution : B.A.F Shaheen School, Dhaka</li>
-									<li>Group : Science</li>
-									<li>Year of Passing : 2010</li>
-									<li>Result : GPA 5.0/5</li>
-									
-									<hr />
-									<header>
-										<h2>Academic Projects Undertaken</h2>
-										
-									<header>
-										<h3>Location and Heart-rate monitor using Real-time Detection</h3>
-										<p5><b>Devices : </b>Arduino Uno, Android mobile phone</p5>
-										<br />
-										<p5><b>Framework : </b>Arduino IDE</p5>
-										<br />
-										<p5><b>Language Used : </b>C++</p5>
-									</header>
-									<p>Here we used an arduino uno core and a gps sensor module to keep track of a person and also measure his/her heart rate via an android phone.  <a href="https://youtu.be/7-0lVgUPkps"> See Demo</a></p>
-									<br />
-									<header>
-										<h3>Excluisive Job-Portal for only BracU students (BJP)</h3>
-										<p5><b>Duration : </b>3 months</p5>
-									</header>
-									<p>This project was a web-based management system where students are able to give their qualities, perks and grades as input and the system will show eligible jobs stored in its database as output on the basis of their qualifications.</p>
-
-									<hr />
-
-								<!-- Lists -->
-									<h2>Quirks & Abilities</h2>
-									<div class="row">
-										<div class="col-6 col-12-small">
-
-											<h3>Professional & Communicational Skills</h3>
-											<ul>
-												<li>Efficient in Microsoft Word, Power Point & Excel.</li>
-												<li>Knowledge in Photoshop, Lightroom, Sony Vegas Pro, CANVA, Affinity Designer & other graphics editor software.</li>
-												<li>Proficient in report writing and research paper writing.</li>
-												<li>Fluent in both English and Bengali.</li>
-												<li>Good organizational and time management skills.</li>
-												<li>Strong communication skill.</li>
-											</ul>
-
-											<h3>Personal Qualities</h3>
-											<ul class="alt">
-												<li>An enthusiastic fresher with highly motivated and leadership skills.</li>
-												<li>Eager to learn new technologies and methodologies.</li>
-												<li>Volunteer, Public Speaker and Mentorship experience.</li>
-												
-											</ul>
-
-										</div>
-										<div class="col-6 col-12-small">
-
-											<h3>Extra-Curricular Activites</h3>
-											<ol>
-												<li>Volunteer at Bengal Classical Music Festival 2015.</li>
-												<li>BracU Computer Club and Gaming Club (general member) (2014-2016).</li>
-												<li>BracU Indoor Game Club (general member) (2013-2015).</li>
-												<li>Inter-Shaheen Chess tournament (champion of 2008).</li>
-												<li>Took part in several gaming events and edited some photos and videos to promote those events.</li>
-											</ol>
-
-											<h3>Connect with me through</h3>
-											<ul class="icons">
-												
-												<li><a href="https://www.facebook.com/jawad.amin.35/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-												<li><a href="https://github.com/J-Amin1011101" class="icon brands fa-github"><span class="label">Github</span></a></li>
-												<li><a href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-											</ul>
-											
-
+								<div class="hw-hero">
+									<div class="hw-left">
+										<h2>How I <span>Build</span> &amp; Deliver</h2>
+										<p class="hw-lead">Turning ideas into scalable, cloud-native solutions that are fast, reliable, and impactful.</p>
+										<div class="hw-pill"><strong>Fast</strong> • <strong>Reliable</strong> • <strong>Impactful</strong></div>
+									</div>
+									<div class="hw-visual">
+										<div class="hw-process">
+											<div class="hw-core">MY<br/>PROCESS</div>
+											<span class="hw-dot d1"></span>
+											<span class="hw-dot d2"></span>
+											<span class="hw-dot d3"></span>
+											<span class="hw-dot d4"></span>
+											<span class="hw-node n1">Design</span>
+											<span class="hw-node n2">Develop</span>
+											<span class="hw-node n3">Deploy</span>
+											<span class="hw-node n4">Optimize</span>
+											<span class="hw-node n5">Discover</span>
 										</div>
 									</div>
-									<h3>Computer Skills</h3>
-									<dl>
-										<dt>OS Familiarity : </dt>
-										<dd>
-											<p>Windows, Linux.</p>
-										</dd>
-										<dt>Programming Language Known : </dt>
-										<dd>
-											<p>Java, Javascript, Python, php, html, C, C++, CSS, Assembly Language, SQL.</p>
-										</dd>
-										<dt>RDMS : </dt>
-										<dd>
-											<p>MySQL, MySQLi, MongoDB, NoSQL.</p>
-										</dd>
-										<dt>Framwork & Library Familiarity : </dt>
-										<dd>
-											<p>Laravel, Bootstrap, J-Query, React-js(bootstrap,icons,grid), VS Code, Node-js, npm, Composer, Javascript Google-Map API.</p>
-										</dd>
-									</dl>
+								</div>
 
-									
+								<div class="hw-cards">
+									<div class="hw-card"><h3><i class="fas fa-chess-knight"></i> Strategy First</h3><p>Problem > Solution</p></div>
+									<div class="hw-card"><h3><i class="fas fa-cloud"></i> Cloud Architecture</h3><p>Scalable &amp; Secure</p></div>
+									<div class="hw-card"><h3><i class="fas fa-sync-alt"></i> Agile Delivery</h3><p>Iterate &amp; Improve</p></div>
+									<div class="hw-card"><h3><i class="fas fa-chart-line"></i> Data-Driven</h3><p>Insights &amp; Impact</p></div>
+									<div class="hw-card"><h3><i class="fas fa-handshake"></i> Collaboration</h3><p>Teams &amp; Leadership</p></div>
+								</div>
 
-								<!-- Image -->
-									<h2>Hobbies & Interests</h2>
-								
+								<div class="hw-stats">
+									<div class="hw-stat"><i class="far fa-folder-open"></i><span><strong>15+</strong> Projects Delivered</span></div>
+									<div class="hw-stat"><i class="fas fa-certificate"></i><span><strong>6+</strong> Cloud Certifications</span></div>
+									<div class="hw-stat"><i class="fas fa-users"></i><span><strong>25K+</strong> Users Impacted</span></div>
+									<div class="hw-stat"><i class="far fa-thumbs-up"></i><span><strong>100%</strong> Client Satisfaction</span></div>
+								</div>
 
-									<h3>Outdoors &amp; Indoors</h3>
-									<p><span class="image left"><img src="images/football-03.jpg" alt="" /></span><h3>Outdoors</h3><li>Cricket </li><li>Football <li>Basketball </li><li>Badminton </li><li>Hiking </li><li>Travelling </li></p>
-									<p><span class="image right"><img src="images/csgo-02.jpg" alt="" /></span>.</p>
+								<div class="hw-bottom">
+									<a class="primary" href="mailto:jawadamin123456@gmail.com">Let's Build Something</a>
+									<a class="secondary" href="index.html">View Case Studies</a>
+									<a class="tertiary" href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" target="_blank" rel="noreferrer">LinkedIn</a>
+									<a class="tertiary" href="https://github.com/Jawad-CapabilityWise" target="_blank" rel="noreferrer">GitHub</a>
+								</div>
+							</div>
+						</section>
+					</div>
 
-									<hr />
-
-								<!-- Box -->
-									
-									<div class="box">
-										<p><h3>Indoors</h3><li>Carom </li><li>Pool </li><li>Chess </li><li>Bridge </li><li>Tabble Tennis </li><li>Online & Offline Pc Video Games </li></p>
-									</div>
-
-									<hr />
-
-									<h2>Summary </h2>
-									<p>I like to learn new technologies and gain experience by working with a global team. <a href="MD. Jawad Amin_resume.html">Click here for pdf</a></p>
-									
-
-								<!-- Preformatted Code -->
-									<h2>Reference </h2>
-									<li><b>Junayed Bin Halim : </b> Software Development Engineer @amazon <dt>13530 Linden Ave N#208, Seattle, WA-98133. </dt></li>
-									<li><b>Dr. S M Shahidullah : </b> Director of Japan Bangladesh Friendship Hospital <dt>South Alimpara, h#13/B Lutfa Manjil, Chittagong. </dt></li>
-									<li><b>Asif Imtiaz Rahman : </b> Department of Marketing @MACES<dt>9B Navana Tower, Gulshan-1, Dhaka-1213. </dt></li>
-									<li><b>Khalid Saifullah Zaman : </b> Backend React-Native Developer @monico-technologies-ltd <dt>Monico Bhaban, h#26 Ring Road, Adabor, Dhaka-1207. </dt></li>
-									</div>
-<!-- Footer -->
-   <footer id="footer">
-						
-	<section class="split contact">
-		<section class="alt">
-			<h3>Address</h3>
-			<p>19/9 Primary School Road,<br />
-			Kallyanpur,Dhaka-1207</p>
-		</section>
-		<section>
-			<h3>Phone</h3>
-			<p><a href="tel:01843643345">(+880)-01843643345</a></p>
-		</section>
-		<section>
-			<h3>Email</h3>
-			<p><a href="mailto:jawadamin84@gmail.com">jawadamin84@gmail.com</a></p>
-		</section>
-		<section>
-			<h3>Social</h3>
-			<ul class="icons alt">
-				
-				<li><a href="https://www.facebook.com/jawad.amin.35/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-				<li><a href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
-				<li><a href="https://github.com/J-Amin1011101" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-			</ul>
-		</section>
-	</section>
-</footer>
+				<!-- Footer -->
+				<footer id="footer">
+					<section class="split contact">
+						<section class="alt">
+							<h3>Address</h3>
+							<p>Level 3/189 Flemington Rd, Mitchell ACT 2911</p>
+						</section>
+						<section>
+							<h3>Phone</h3>
+							<p><a href="tel:+61480366782">(+61) 0480366782</a></p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="mailto:jawadamin123456@gmail.com">jawadamin123456@gmail.com</a></p>
+						</section>
+						<section>
+							<h3>Social</h3>
+							<ul class="icons alt">
+								<li><a href="https://www.facebook.com/jawad.amin.35/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
+								<li><a href="https://github.com/Jawad-CapabilityWise" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+							</ul>
+						</section>
+					</section>
+				</footer>
 
 				<!-- Copyright -->
-<div id="copyright">
-	<ul><li>&copy; Copyright</li><li>This site is created by Jawad Amin.<a><p>All rights reserved.</p></a></li></ul>
-</div>
-
-</div>
+				<div id="copyright">
+					<ul><li>&copy; Copyright</li><li>This site is created by Jawad Amin.<a><p>All rights reserved.</p></a></li></ul>
+				</div>
+			</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

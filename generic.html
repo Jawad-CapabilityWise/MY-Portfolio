@@ -11,6 +11,92 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.about-hybrid { color: #1f2937; }
+			.about-hybrid .ah-eyebrow { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #6b7280; margin: 0; }
+			.about-hybrid .ah-title { margin: 0.4rem 0 0; font-size: 2rem; line-height: 1.2; }
+			.about-hybrid .ah-subtitle { margin: 0.5rem 0 0; color: #4b5563; }
+			.about-hybrid .ah-grid { display: grid; gap: 1rem; }
+			.about-hybrid .ah-hero { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+			.about-hybrid .ah-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+			.about-hybrid .ah-card-pad { padding: 1.25rem; }
+			.about-hybrid .ah-headshot { width: 96px; height: 96px; border-radius: 999px; object-fit: cover; border: 2px solid #e5e7eb; }
+			.about-hybrid .ah-inline { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
+			.about-hybrid .ah-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.9rem 0 0; }
+			.about-hybrid .ah-chip { padding: 0.28rem 0.72rem; border-radius: 999px; background: #eef2ff; color: #1f2937; font-size: 0.75rem; font-weight: 600; }
+			.about-hybrid .ah-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+			.about-hybrid .ah-btn { display: inline-flex; align-items: center; gap: 0.45rem; border-radius: 0.8rem; font-size: 0.82rem; line-height: 1; padding: 0.7rem 0.9rem; border: 1px solid #d1d5db; text-decoration: none; font-weight: 700; }
+			.about-hybrid .ah-btn-primary { background: #111827; color: #fff; border-color: #111827; }
+			.about-hybrid .ah-btn-soft { background: #f3f4f6; color: #111827; }
+			.about-hybrid .ah-btn-link { background: #fff; color: #111827; }
+			.about-hybrid .ah-kicker { color: #6b7280; font-size: 0.84rem; margin-top: 0.25rem; }
+			.about-hybrid .ah-copy p { margin: 0.5rem 0; color: #374151; }
+			.about-hybrid .ah-three { display: grid; gap: 0.9rem; grid-template-columns: 1fr; margin-top: 1rem; }
+			.about-hybrid .ah-bullets { margin: 0.6rem 0 0; padding-left: 1.1rem; color: #4b5563; }
+			.about-hybrid .ah-bullets li { margin: 0.35rem 0; }
+			.about-hybrid .ah-proof { margin-top: 0.8rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; }
+			.about-hybrid .ah-split { display: grid; grid-template-columns: 1fr; }
+			.about-hybrid .ah-split-a { padding: 1.25rem; }
+			.about-hybrid .ah-split-b { padding: 1.25rem; background: #f8fafc; border-top: 1px solid #e5e7eb; }
+			.about-hybrid .ah-row { display: flex; gap: 0.7rem; margin-bottom: 0.8rem; }
+			.about-hybrid .ah-iconbox { width: 34px; height: 34px; border-radius: 0.7rem; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #e5e7eb; background: #fff; flex-shrink: 0; }
+			.about-hybrid .ah-timeline details { border: 1px solid #e5e7eb; border-radius: 1rem; background: #fff; padding: 1rem 1.1rem; }
+			.about-hybrid .ah-timeline details + details { margin-top: 0.7rem; }
+			.about-hybrid .ah-timeline summary { list-style: none; cursor: pointer; }
+			.about-hybrid .ah-timeline summary::-webkit-details-marker { display: none; }
+			.about-hybrid .ah-role { font-weight: 700; margin: 0; }
+			.about-hybrid .ah-org { margin: 0.2rem 0 0; color: #6b7280; font-size: 0.92rem; }
+			.about-hybrid .ah-meta { font-size: 0.78rem; color: #6b7280; display: inline-flex; gap: 0.5rem; margin-top: 0.55rem; }
+			.about-hybrid .ah-flow { display: grid; grid-template-columns: repeat(1,minmax(0,1fr)); gap: 0.65rem; margin-bottom: 0.85rem; }
+			.about-hybrid .ah-flow-item { padding: 0.72rem; border: 1px solid #e5e7eb; border-radius: 0.8rem; background: #fff; }
+			.about-hybrid .ah-two { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
+			.about-hybrid .ah-certs { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+			.about-hybrid .ah-anim { animation: ahFadeUp .5s ease both; }
+			.about-hybrid .ah-anim-2 { animation-delay: .08s; }
+			.about-hybrid .ah-anim-3 { animation-delay: .16s; }
+			.about-hybrid .ah-anim-4 { animation-delay: .24s; }
+			#main {
+				margin-bottom: 0;
+				padding-bottom: 0;
+				position: relative;
+				background:
+					radial-gradient(70rem 35rem at 15% -10%, rgba(55, 151, 255, 0.16), transparent 60%),
+					radial-gradient(70rem 35rem at 95% 0%, rgba(141, 94, 255, 0.12), transparent 58%),
+					radial-gradient(46rem 20rem at 52% 56%, rgba(33, 212, 253, 0.12), transparent 70%),
+					linear-gradient(165deg, #ead8c4, #cfb294);
+			}
+			#main > .post {
+				margin-bottom: 0;
+			}
+			#footer {
+				margin-top: 0;
+				background: linear-gradient(165deg, #efe3d4, #dcc5ad);
+				border-top: 2px solid rgba(111, 81, 52, 0.34);
+			}
+			#footer .split.contact > section {
+				border-color: rgba(122, 91, 60, 0.28);
+			}
+			#footer h3 {
+				color: #3b2d1f;
+			}
+			#footer p,
+			#footer a {
+				color: #53402f;
+			}
+			#footer .icons.alt a {
+				color: #3e516f;
+			}
+			@keyframes ahFadeUp { from { opacity: 0; transform: translateY(14px);} to { opacity: 1; transform: translateY(0);} }
+			@media screen and (min-width: 900px) {
+				.about-hybrid .ah-hero { grid-template-columns: 330px 1fr; align-items: center; }
+				.about-hybrid .ah-three { grid-template-columns: repeat(3,minmax(0,1fr)); }
+				.about-hybrid .ah-split { grid-template-columns: 1fr 1.2fr; }
+				.about-hybrid .ah-split-b { border-top: 0; border-left: 1px solid #e5e7eb; }
+				.about-hybrid .ah-flow { grid-template-columns: repeat(5,minmax(0,1fr)); }
+				.about-hybrid .ah-two { grid-template-columns: repeat(2,minmax(0,1fr)); }
+				.about-hybrid .ah-title { font-size: 2.4rem; }
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -25,16 +111,15 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="elements.html">My resume</a></li>
-							<li class="active"><a href="generic.html">About me</a></li>
 							<li><a href="index.html">Projects</a></li>
-							
+							<li class="active"><a href="generic.html">About Me</a></li>
+							<li><a href="elements.html">How I Work</a></li>
 						</ul>
 						<ul class="icons">
 							
 							<li><a href="https://www.facebook.com/jawad.amin.35/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 							<li><a href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-							<li><a href="https://github.com/J-Amin1011101" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/Jawad-CapabilityWise" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
@@ -42,17 +127,176 @@
 					<div id="main">
 
 						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									
-									<h1>Hello<br />
-									This is Jawad</h1>
-									<p>My career objective is to achieve a challenging position in a reputed organization where I can use my skills and real life work experiences to become an efficient professional by implementing my academic qualifications.</p>
-								</header>
-								<div class="image main"><img src="images/dp-02.jpg" alt="" /></div>
-								<p>I am a Computer Science Graduate of 2019 from Brac University. I am highly organized, productive and responsive, with extensive experience providing administrative, secretarial, and IT support to managers, volunteers, and leaders in demanding and time-sensitive environments in both the public and private sectors. I use my initiative and report writing skills to deliver high-quality work while meeting deadlines and maintaining strict adherence to confidentiality.</p>
-								<p>I work similarly well in group arranged and self-coordinated conditions and discover the difficulties of the beginning up setting animating. Notwithstanding my range of abilities and vitality, I bring to the position broad information on online partnership items and patterns that will make a significant commitment towards your organization objectives of building a crowd of people and developing the brand.</p>
-								<p>I am now looking for a new opportunity to apply my technical expertise and interpersonal skills within an exciting business with strong growth prospects.</p>
+							<section class="post about-hybrid" id="about">
+								<div class="ah-hero ah-anim">
+									<article class="ah-card">
+										<div class="ah-card-pad">
+											<div class="ah-inline">
+												<img src="images/jawad-professional-optimized.jpg" alt="Jawad Amin headshot" class="ah-headshot" loading="lazy" width="96" height="96" />
+												<div>
+													<p class="ah-kicker">Cloud &amp; Full-Stack Engineer • AI-Driven Solutions • Educator</p>
+													<p class="ah-kicker"><i class="fas fa-map-marker-alt"></i> Canberra, Australia</p>
+												</div>
+											</div>
+											<div class="ah-chips">
+												<span class="ah-chip">AWS</span><span class="ah-chip">Angular</span><span class="ah-chip">React</span><span class="ah-chip">Python</span><span class="ah-chip">Serverless</span>
+											</div>
+											<div class="ah-actions">
+												<a class="ah-btn ah-btn-primary" href="index.html">View Projects <i class="fas fa-arrow-right"></i></a>
+												<a class="ah-btn ah-btn-soft" href="MD. Jawad Amin_resume.html">Download Resume</a>
+											</div>
+											<div class="ah-actions">
+												<a class="ah-btn ah-btn-link" href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+												<a class="ah-btn ah-btn-link" href="https://github.com/Jawad-CapabilityWise" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
+											</div>
+										</div>
+									</article>
+									<div class="ah-copy">
+										<h1 class="ah-title">Jawad Amin</h1>
+										<p class="ah-subtitle">Cloud &amp; Full-Stack Engineer • AI-Driven Solutions • Educator</p>
+										<p>I build cloud-native, full-stack systems and AI-powered search tools that turn messy information into clear decisions.</p>
+										<p>I combine engineering depth with real-world delivery, teaching developers, supporting users, and improving operations.</p>
+										<div class="ah-actions">
+											<a class="ah-btn ah-btn-soft" href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+											<a class="ah-btn ah-btn-link" href="#timeline">Experience Timeline</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="ah-anim ah-anim-2" style="margin-top:2rem;">
+									<p class="ah-eyebrow">Snapshot</p>
+									<h2 style="margin:0.3rem 0 0;">What I am known for</h2>
+									<p class="ah-subtitle">A hybrid profile: building systems, enabling people, and delivering outcomes that ship.</p>
+									<div class="ah-three">
+										<article class="ah-card ah-card-pad">
+											<h3><i class="fas fa-cloud"></i> Cloud Delivery</h3>
+											<ul class="ah-bullets">
+												<li>Serverless-first architecture and pragmatic DevOps habits.</li>
+												<li>Iterative shipping with reliability, monitoring, and clean APIs.</li>
+											</ul>
+											<a class="ah-proof" href="#timeline">See experience <i class="fas fa-arrow-right"></i></a>
+										</article>
+										<article class="ah-card ah-card-pad">
+											<h3><i class="fas fa-brain"></i> AI + Search</h3>
+											<ul class="ah-bullets">
+												<li>Semantic search and relevance scoring for research discovery.</li>
+												<li>NLP foundations applied to practical product workflows.</li>
+											</ul>
+											<a class="ah-proof" href="index.html">See projects <i class="fas fa-arrow-right"></i></a>
+										</article>
+										<article class="ah-card ah-card-pad">
+											<h3><i class="fas fa-users"></i> Leadership + Enablement</h3>
+											<ul class="ah-bullets">
+												<li>Workshop facilitation and mentoring through hands-on builds.</li>
+												<li>Clear translation of complex ideas into usable outcomes.</li>
+											</ul>
+											<a class="ah-proof" href="#timeline">See teaching <i class="fas fa-arrow-right"></i></a>
+										</article>
+									</div>
+								</div>
+
+								<div class="ah-anim ah-anim-3" style="margin-top:1rem;">
+									<article class="ah-card ah-split">
+										<div class="ah-split-a">
+											<p class="ah-eyebrow">Differentiator</p>
+											<h3 style="margin:0.3rem 0 0;">Engineering + People + Delivery</h3>
+											<p class="ah-subtitle">I am strongest at the intersection: solid engineering, clear communication, and delivery that respects real-world constraints.</p>
+										</div>
+										<div class="ah-split-b">
+											<div class="ah-row"><span class="ah-iconbox"><i class="fas fa-layer-group"></i></span><div><strong>Builder</strong><br /><span class="ah-kicker">Full-stack + cloud solutions with practical implementation and clean UX.</span></div></div>
+											<div class="ah-row"><span class="ah-iconbox"><i class="fas fa-users"></i></span><div><strong>Communicator</strong><br /><span class="ah-kicker">Workshops, mentoring, and stakeholder clarity to unblock teams.</span></div></div>
+											<div class="ah-row" style="margin-bottom:0;"><span class="ah-iconbox"><i class="fas fa-wrench"></i></span><div><strong>Operator</strong><br /><span class="ah-kicker">Process, customer outcomes, and systems thinking from operations environments.</span></div></div>
+										</div>
+									</article>
+								</div>
+
+								<div class="ah-anim ah-anim-4" id="timeline" style="margin-top:2rem;">
+									<p class="ah-eyebrow">Experience</p>
+									<h2 style="margin:0.3rem 0 0;">A timeline that tells the full story</h2>
+									<p class="ah-subtitle">Not just roles: what I shipped, taught, and improved across teams.</p>
+									<div class="ah-timeline">
+										<details>
+											<summary><p class="ah-role">Software Developer</p><p class="ah-org">Capability Wise</p><p class="ah-meta"><span>2025 - Present</span><span>Canberra (Hybrid)</span></p><div class="ah-chips"><span class="ah-chip">Angular</span><span class="ah-chip">TypeScript</span><span class="ah-chip">AWS</span><span class="ah-chip">Node.js</span><span class="ah-chip">DynamoDB</span></div></summary>
+											<ul class="ah-bullets"><li>Built and refined front-end features focused on usability and performance.</li><li>Worked across APIs and cloud services to support reliable product workflows.</li></ul>
+										</details>
+										<details>
+											<summary><p class="ah-role">AI Semantic Search Project</p><p class="ah-org">Deloitte-sponsored (University of Canberra)</p><p class="ah-meta"><span>2023 - 2024</span><span>Canberra</span></p><div class="ah-chips"><span class="ah-chip">Python</span><span class="ah-chip">NLP</span><span class="ah-chip">React</span><span class="ah-chip">MongoDB</span><span class="ah-chip">Ranking</span></div></summary>
+											<ul class="ah-bullets"><li>Designed an AI semantic search approach to rank credible research papers.</li><li>Focused on evaluation, relevance scoring, and practical discovery UX.</li></ul>
+										</details>
+										<details>
+											<summary><p class="ah-role">Full-Stack Developer</p><p class="ah-org">EB Solutions</p><p class="ah-meta"><span>2019 - 2020</span><span>Dhaka</span></p><div class="ah-chips"><span class="ah-chip">React</span><span class="ah-chip">Laravel</span><span class="ah-chip">Flutter</span><span class="ah-chip">REST APIs</span></div></summary>
+											<ul class="ah-bullets"><li>Delivered web and mobile features through collaborative development cycles.</li><li>Aligned outputs with user requirements across stakeholder groups.</li></ul>
+										</details>
+										<details>
+											<summary><p class="ah-role">Head Teacher / Instructor</p><p class="ah-org">CodeCamp</p><p class="ah-meta"><span>2022 - Present</span><span>Canberra</span></p><div class="ah-chips"><span class="ah-chip">JavaScript</span><span class="ah-chip">THREE.js</span><span class="ah-chip">Teaching</span></div></summary>
+											<ul class="ah-bullets"><li>Ran interactive sessions that helped learners apply concepts through projects.</li><li>Built 2D/3D learning games to make technical ideas tangible.</li></ul>
+										</details>
+									</div>
+								</div>
+
+								<div style="margin-top:2rem;">
+									<p class="ah-eyebrow">Approach</p>
+									<h2 style="margin:0.3rem 0 0;">How I Build</h2>
+									<p class="ah-subtitle">A simple architecture pattern I use to ship reliably.</p>
+									<article class="ah-card ah-card-pad">
+										<div class="ah-flow">
+											<div class="ah-flow-item"><strong>UI</strong><br /><span class="ah-kicker">Angular / React</span></div>
+											<div class="ah-flow-item"><strong>APIs</strong><br /><span class="ah-kicker">Node / Flask</span></div>
+											<div class="ah-flow-item"><strong>Cloud</strong><br /><span class="ah-kicker">AWS Serverless</span></div>
+											<div class="ah-flow-item"><strong>Data</strong><br /><span class="ah-kicker">DynamoDB / MongoDB</span></div>
+											<div class="ah-flow-item"><strong>Intelligence</strong><br /><span class="ah-kicker">NLP / Ranking</span></div>
+										</div>
+										<div class="ah-chips"><span class="ah-chip">TypeScript</span><span class="ah-chip">AWS Lambda</span><span class="ah-chip">API Gateway</span><span class="ah-chip">DynamoDB</span><span class="ah-chip">MongoDB</span><span class="ah-chip">Python</span><span class="ah-chip">NLP</span></div>
+									</article>
+								</div>
+
+								<div style="margin-top:2rem;">
+									<p class="ah-eyebrow">Skills</p>
+									<h2 style="margin:0.3rem 0 0;">Technical depth + human delivery</h2>
+									<div class="ah-two">
+										<article class="ah-card ah-card-pad">
+											<h3><i class="fas fa-layer-group"></i> Technical</h3>
+											<ul class="ah-bullets"><li>AWS Serverless (Lambda, API Gateway)</li><li>Frontend: Angular, React, TypeScript</li><li>Backend: Node.js, Python (Flask)</li><li>Databases: DynamoDB, MongoDB, SQL</li><li>REST APIs, Auth flows, Integrations</li></ul>
+										</article>
+										<article class="ah-card ah-card-pad">
+											<h3><i class="fas fa-users"></i> Delivery</h3>
+											<ul class="ah-bullets"><li>Workshop facilitation and mentoring</li><li>Stakeholder communication</li><li>Documentation and reporting</li><li>Customer support mindset</li><li>Process improvement and operations</li></ul>
+										</article>
+									</div>
+								</div>
+
+								<div style="margin-top:2rem;">
+									<p class="ah-eyebrow">Background</p>
+									<h2 style="margin:0.3rem 0 0;">Education &amp; credentials</h2>
+									<div class="ah-two">
+										<article class="ah-card ah-card-pad"><h3><i class="fas fa-graduation-cap"></i> Master of Information Technology &amp; Systems (Distinction)</h3><p class="ah-kicker">University of Canberra • Cloud specialisation • 2024</p></article>
+										<article class="ah-card ah-card-pad"><h3><i class="fas fa-graduation-cap"></i> Bachelor of Computer Science</h3><p class="ah-kicker">BRAC University • 2018</p></article>
+									</div>
+									<article class="ah-card ah-card-pad" style="margin-top:0.9rem;">
+										<h3><i class="fas fa-award"></i> Certificates &amp; badges</h3>
+										<div class="ah-certs"><span class="ah-chip">AWS DevOps Engineer (Course/Badge)</span><span class="ah-chip">CCNA (Foundations)</span><span class="ah-chip">freeCodeCamp (JS/React/Web)</span></div>
+									</article>
+								</div>
+
+								<div id="contact" style="margin-top:2rem;">
+									<article class="ah-card ah-split">
+										<div class="ah-split-a">
+											<p class="ah-eyebrow">Next</p>
+											<h3 style="margin:0.3rem 0 0;">Let us build something that ships.</h3>
+											<p class="ah-subtitle">If you are hiring or collaborating, I can share projects, architecture notes, or a tailored case study.</p>
+											<div class="ah-actions">
+												<a class="ah-btn ah-btn-primary" href="mailto:jawadamin123456@gmail.com"><i class="fas fa-envelope"></i> Email me</a>
+												<a class="ah-btn ah-btn-link" href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+												<a class="ah-btn ah-btn-link" href="https://github.com/Jawad-CapabilityWise" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
+											</div>
+										</div>
+										<div class="ah-split-b">
+											<p><strong>Quick contact</strong></p>
+											<p class="ah-kicker"><i class="fas fa-envelope"></i> jawadamin123456@gmail.com</p>
+											<p class="ah-kicker"><i class="fas fa-map-marker-alt"></i> Canberra, Australia</p>
+										</div>
+									</article>
+								</div>
 							</section>
 
 					</div>
@@ -63,16 +307,15 @@
 	<section class="split contact">
 		<section class="alt">
 			<h3>Address</h3>
-			<p>19/9 Primary School Road,<br />
-			Kallyanpur,Dhaka-1207</p>
+			<p>Level 3/189 Flemington Rd, Mitchell ACT 2911</p>
 		</section>
 		<section>
 			<h3>Phone</h3>
-			<p><a href="tel:01843643345">(+880)-01843643345</a></p>
+			<p><a href="tel:+61480366782">(+61) 0480366782</a></p>
 		</section>
 		<section>
 			<h3>Email</h3>
-			<p><a href="mailto:jawadamin84@gmail.com">jawadamin84@gmail.com</a></p>
+			<p><a href="mailto:jawadamin123456@gmail.com">jawadamin123456@gmail.com</a></p>
 		</section>
 		<section>
 			<h3>Social</h3>
@@ -80,7 +323,7 @@
 				
 				<li><a href="https://www.facebook.com/jawad.amin.35/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
 				<li><a href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
-				<li><a href="https://github.com/J-Amin1011101" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+				<li><a href="https://github.com/Jawad-CapabilityWise" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 			</ul>
 		</section>
 	</section>

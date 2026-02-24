@@ -11,6 +11,306 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			#main {
+				margin-bottom: 0;
+				padding-bottom: 0;
+				position: relative;
+				background:
+					radial-gradient(70rem 35rem at 15% -10%, rgba(55, 151, 255, 0.16), transparent 60%),
+					radial-gradient(70rem 35rem at 95% 0%, rgba(141, 94, 255, 0.12), transparent 58%),
+					radial-gradient(46rem 20rem at 52% 56%, rgba(33, 212, 253, 0.12), transparent 70%),
+					linear-gradient(165deg, #ead8c4, #cfb294);
+			}
+			#main > .post,
+			#main > .posts {
+				margin-bottom: 0;
+			}
+			#footer {
+				margin-top: 0;
+				background: linear-gradient(165deg, #efe3d4, #dcc5ad);
+				border-top: 2px solid rgba(111, 81, 52, 0.34);
+			}
+			#footer .split.contact > section {
+				border-color: rgba(122, 91, 60, 0.28);
+			}
+			#footer h3 {
+				color: #3b2d1f;
+			}
+			#footer p,
+			#footer a {
+				color: #53402f;
+			}
+			#footer .icons.alt a {
+				color: #3e516f;
+			}
+			.projects-hybrid {
+				color: #223047;
+			}
+			.ph-title-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1rem;
+				align-items: flex-end;
+				justify-content: space-between;
+			}
+			.ph-eyebrow {
+				margin: 0;
+				font-size: 0.72rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: #5f6474;
+			}
+			.ph-title {
+				margin: 0.35rem 0 0;
+				font-size: 2rem;
+				line-height: 1.2;
+			}
+			.ph-sub {
+				margin: 0.35rem 0 0;
+				color: #5f6474;
+			}
+			.ph-search {
+				position: relative;
+				min-width: 280px;
+				max-width: 360px;
+				width: 100%;
+			}
+			.ph-search i {
+				position: absolute;
+				left: 0.8rem;
+				top: 50%;
+				transform: translateY(-50%);
+				color: #67748d;
+			}
+			.ph-search input {
+				width: 100%;
+				height: 2.8rem;
+				padding: 0 0.85rem 0 2.25rem;
+				border-radius: 0.9rem;
+				border: 1px solid rgba(90, 120, 170, 0.35);
+				background: rgba(255, 255, 255, 0.62);
+				color: #223047;
+			}
+			.ph-filter {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem;
+				margin-top: 1rem;
+			}
+			.ph-filter button {
+				border: 1px solid rgba(91, 124, 180, 0.35);
+				background: rgba(255, 255, 255, 0.55);
+				color: #2b3954;
+				padding: 0.4rem 0.75rem;
+				border-radius: 999px;
+				font-size: 0.78rem;
+				font-weight: 700;
+				cursor: pointer;
+				transition: all 0.2s ease;
+			}
+			.ph-filter button.active,
+			.ph-filter button:hover {
+				background: linear-gradient(90deg, #2f7de0, #31bae6);
+				color: #fff;
+				border-color: transparent;
+			}
+			.ph-section-head {
+				margin-top: 1.4rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 1rem;
+				flex-wrap: wrap;
+			}
+			.ph-section-head p {
+				margin: 0;
+			}
+			.ph-featured,
+			.ph-grid {
+				display: grid;
+				gap: 0.9rem;
+				margin-top: 0.8rem;
+			}
+			.ph-featured {
+				grid-template-columns: 1fr;
+			}
+			.ph-grid {
+				grid-template-columns: 1fr;
+			}
+			.ph-card {
+				border: 1px solid rgba(102, 134, 184, 0.35);
+				border-radius: 1rem;
+				background: rgba(255, 255, 255, 0.55);
+				overflow: hidden;
+				box-shadow: 0 8px 20px rgba(56, 94, 151, 0.12);
+				transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+				transform-style: preserve-3d;
+			}
+			.ph-card:hover {
+				transform: translateY(-4px);
+				border-color: rgba(53, 146, 227, 0.55);
+				box-shadow: 0 14px 24px rgba(53, 146, 227, 0.18);
+			}
+			.ph-thumb-wrap {
+				position: relative;
+				aspect-ratio: 16 / 9;
+				background: #d7dde8;
+			}
+			.ph-thumb-wrap img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+			.ph-badge {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.25rem;
+				font-size: 0.68rem;
+				font-weight: 700;
+				padding: 0.28rem 0.55rem;
+				border-radius: 999px;
+				background: linear-gradient(90deg, #2f7de0, #31bae6);
+				color: #fff;
+			}
+			.ph-badge-sec {
+				position: absolute;
+				right: 0.6rem;
+				bottom: 0.6rem;
+				background: rgba(255, 255, 255, 0.88);
+				color: #30405d;
+			}
+			.ph-badge-main {
+				position: absolute;
+				left: 0.6rem;
+				top: 0.6rem;
+			}
+			.ph-card-body {
+				padding: 0.95rem;
+			}
+			.ph-card-title {
+				margin: 0;
+				font-size: 1.02rem;
+				line-height: 1.25;
+			}
+			.ph-card-line {
+				margin: 0.4rem 0 0;
+				color: #5f6474;
+				font-size: 0.85rem;
+			}
+			.ph-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.35rem;
+				margin-top: 0.7rem;
+			}
+			.ph-tag {
+				padding: 0.22rem 0.55rem;
+				border-radius: 999px;
+				font-size: 0.68rem;
+				font-weight: 700;
+				background: rgba(234, 244, 255, 0.9);
+				color: #2f4f7e;
+				border: 1px solid rgba(93, 134, 204, 0.2);
+			}
+			.ph-actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem;
+				margin-top: 0.8rem;
+			}
+			.ph-btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.3rem;
+				text-decoration: none;
+				border-radius: 0.7rem;
+				padding: 0.45rem 0.68rem;
+				font-size: 0.76rem;
+				font-weight: 700;
+				border: 1px solid rgba(91, 124, 180, 0.35);
+				background: rgba(255, 255, 255, 0.66);
+				color: #2b3954;
+				cursor: pointer;
+			}
+			.ph-btn.main {
+				border-color: transparent;
+				background: linear-gradient(90deg, #2f7de0, #31bae6);
+				color: #fff;
+			}
+			.ph-modal {
+				position: fixed;
+				inset: 0;
+				background: rgba(26, 35, 50, 0.58);
+				display: none;
+				align-items: center;
+				justify-content: center;
+				padding: 1rem;
+				z-index: 9999;
+			}
+			.ph-modal.open {
+				display: flex;
+			}
+			.ph-modal-card {
+				width: min(980px, 100%);
+				border-radius: 1rem;
+				background: #fff;
+				border: 1px solid rgba(93, 134, 204, 0.2);
+				overflow: hidden;
+			}
+			.ph-modal-top {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1rem;
+				padding: 0.85rem 1rem;
+				border-bottom: 1px solid rgba(93, 134, 204, 0.2);
+			}
+			.ph-close {
+				border: 1px solid rgba(91, 124, 180, 0.35);
+				background: #fff;
+				color: #32425f;
+				border-radius: 0.6rem;
+				padding: 0.35rem 0.55rem;
+				font-weight: 700;
+				cursor: pointer;
+			}
+			.ph-modal-body {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 1rem;
+				padding: 1rem;
+			}
+			.ph-modal-img {
+				aspect-ratio: 16 / 9;
+				border-radius: 0.8rem;
+				overflow: hidden;
+			}
+			.ph-modal-img img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			.ph-muted {
+				color: #5f6474;
+			}
+			#ph-count {
+				font-size: 0.8rem;
+				color: #5f6474;
+			}
+			@media screen and (min-width: 860px) {
+				.ph-featured {
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+				}
+				.ph-grid {
+					grid-template-columns: repeat(3, minmax(0, 1fr));
+				}
+				.ph-modal-body {
+					grid-template-columns: 1.05fr 0.95fr;
+				}
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -35,91 +335,47 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="elements.html">My Resume</a></li>
-							<li><a href="generic.html">About me</a></li>
 							<li class="active"><a href="index.html">Projects</a></li>
-							
+							<li><a href="generic.html">About Me</a></li>
+							<li><a href="elements.html">How I Work</a></li>
 						</ul>
 						<ul class="icons">
 							
 							<li><a href="https://www.facebook.com/jawad.amin.35/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 							<li><a href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-							<li><a href="https://github.com/J-Amin1011101" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/Jawad-CapabilityWise" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
+						<section class="post projects-hybrid" id="projects">
+							<div class="ph-title-row">
+								<div>
+									<p class="ph-eyebrow">Projects</p>
+									<h2 class="ph-title">Work I am proud of</h2>
+									<p class="ph-sub">Filter by category, search by keyword, and quick-view each project without leaving this page.</p>
+								</div>
+								<div class="ph-search">
+									<i class="fas fa-search"></i>
+									<input id="ph-search" type="text" placeholder="Search projects, stack, keywords..." />
+								</div>
+							</div>
 
-						<!-- Featured Post -->
-							<article class="post featured">
-								<header class="major">
-									
-									<h2><a href="elements.html">My name is<br />
-									Jawad Amin</a></h2>
-									<p>and the projects done by me are given below</p>
-								</header>
-								<a href="https://github.com/J-Amin1011101?tab=repositories" class="image main"><img src="images/img-01.jpg" alt="" /></a>
-								<ul class="actions special">
-									<li><a href="https://youtu.be/aN-pF3Voj-Q" class="button large">Check out demos</a></li>
-								</ul>
-							</article>
+							<div id="ph-filter" class="ph-filter"></div>
 
-						<!-- Posts -->
-							<section class="posts">
-								<article>
-									<header>
-										
-										<h2><a href="https://github.com/J-Amin1011101/Covid19_ReactJs.git">Covid-19 Live Status</h2>
-									</header>
-									<a href="https://github.com/J-Amin1011101/Covid19_ReactJs.git" class="image fit"><img src="images/img-03.jpg" alt="" /></a>
-									<p>This project is built using <p> 
-									<p>Reactjs,Nodejs,react-js,npm,javascript,html,CSS,react-bootstrap(grid+icons),covid API,Google map API</p>
-									<ul class="actions special">
-										<li><a href="https://codesandbox.io/s/zealous-lovelace-6cs9o" class="button">Take a peek</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										
-										<h2><a href="https://github.com/J-Amin1011101/Instagram-clone-using-laravel-1st-project-.git">Instagram-Clone<br />
-										using Laravel</a></h2>
-									</header>
-									<a href="https://github.com/J-Amin1011101/Instagram-clone-using-laravel-1st-project-.git" class="image fit"><img src="images/img-04.jpg" alt="" /></a>
-									<p>This was done with the basic understanding of Laravel.</p>
-									<p>Aside from laravel framework here i used raw php and html in backend,CSS for designing,MySQL as DBMS and also took help from npm and composer library</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/J-Amin1011101/Instagram-clone-using-laravel-1st-project-.git" class="button">Take a peek</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://youtu.be/lWdm8LEOhhQ">AI project that<br />
-										uses voice command to perform actions</a></h2>
-									</header>
-									<a href="https://youtu.be/lWdm8LEOhhQ" class="image fit"><img src="images/img-05.jpg" alt="" /></a>
-									<p>This is an old AI project done on windows-7 which was inspired from seeing the 1st ironman movie.</p>
-									<p>Here i used Mark2(experimental software developed by MIT undergrads),Eventghost macros to pass commands to operators(Ex- windows media player,photo viewer etc) and rainmeter as fontend</p>
-									<ul class="actions special">
-										<li><a href="https://youtu.be/lWdm8LEOhhQ" class="button">View Demo</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										
-										<h2><a href="https://www.youtube.com/watch?v=Yi1gFgvjBjk&list=PL7Up2Ymfp3va_Xdw3GfKvQcfBhCF4DlaV&ab_channel=JawadAmin">Video Edits using<br />
-										Sony Vegas-pro</a></h2>
-									</header>
-									<a href="https://www.youtube.com/watch?v=Yi1gFgvjBjk&list=PL7Up2Ymfp3va_Xdw3GfKvQcfBhCF4DlaV&ab_channel=JawadAmin" class="image fit"><img src="images/img-06.jpg" alt="" /></a>
-									<p>Tried editing some ingame frag movies(csgo to be specific) using Sony Vegas-pro.</p>
-									<ul class="actions special">
-										<li><a href="https://www.youtube.com/watch?v=Yi1gFgvjBjk&list=PL7Up2Ymfp3va_Xdw3GfKvQcfBhCF4DlaV&ab_channel=JawadAmin" class="button">See Demo</a></li>
-									</ul>
-								</article>
-								
-							</section>
+							<div class="ph-section-head">
+								<p><strong>Featured</strong></p>
+								<p class="ph-muted">Top portfolio highlights</p>
+							</div>
+							<div id="ph-featured" class="ph-featured"></div>
 
-
+							<div class="ph-section-head">
+								<p><strong>All Projects</strong></p>
+								<p id="ph-count"></p>
+							</div>
+							<div id="ph-grid" class="ph-grid"></div>
+						</section>
 					</div>
 
 				<!-- Footer -->
@@ -128,16 +384,15 @@
 						<section class="split contact">
 							<section class="alt">
 								<h3>Address</h3>
-								<p>19/9 Primary School Road,<br />
-								Kallyanpur,Dhaka-1207</p>
+								<p>Level 3/189 Flemington Rd, Mitchell ACT 2911</p>
 							</section>
 							<section>
 								<h3>Phone</h3>
-								<p><a href="tel:01843643345">(+880)-01843643345</a></p>
+								<p><a href="tel:+61480366782">(+61) 0480366782</a></p>
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p><a href="mailto:jawadamin84@gmail.com">jawadamin84@gmail.com</a></p>
+								<p><a href="mailto:jawadamin123456@gmail.com">jawadamin123456@gmail.com</a></p>
 							</section>
 							<section>
 								<h3>Social</h3>
@@ -166,6 +421,229 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				(function () {
+					const projects = [
+						{
+							id: "smartresearch",
+							title: "SmartResearch - AI Semantic Search",
+							oneLiner: "AI semantic search prototype to rank credible research papers faster.",
+							description: "University capstone-style AI search project focused on semantic matching, relevance scoring, and practical research discovery UX.",
+							thumbnail: "images/img-01.jpg",
+							featured: true,
+							categories: ["AI/Search", "Full-Stack"],
+							stack: ["Python", "NLP", "React", "MongoDB", "Ranking"],
+							links: { github: "https://github.com/Jawad-CapabilityWise" },
+							highlights: ["Semantic ranking approach", "Relevance and credibility scoring", "Search-first UX for discovery"]
+						},
+						{
+							id: "capabilitywise-dev",
+							title: "Capability Wise - Cloud Product Engineering",
+							oneLiner: "Angular and AWS-driven product work with reliable API workflows.",
+							description: "Hands-on product engineering across frontend, APIs, and cloud services, with focus on usability, consistency, and delivery reliability.",
+							thumbnail: "images/jawad-about-uploaded.jpeg",
+							featured: true,
+							categories: ["Cloud", "Full-Stack"],
+							stack: ["TypeScript", "AWS", "Node.js", "DynamoDB"],
+							links: { github: "https://github.com/Jawad-CapabilityWise" },
+							highlights: ["Feature delivery in production-like flows", "Cloud-backed API integration", "Performance and reliability improvements"]
+						},
+						{
+							id: "covid-react",
+							title: "Covid-19 Live Status",
+							oneLiner: "Live status dashboard using public APIs and map integration.",
+							description: "Built with React and API integrations to visualize live Covid updates with map views and responsive components.",
+							thumbnail: "images/img-03.jpg",
+							categories: ["Full-Stack"],
+							stack: ["React", "Node.js", "JavaScript", "Google Maps API"],
+							links: { live: "https://codesandbox.io/s/zealous-lovelace-6cs9o", github: "https://github.com/J-Amin1011101/Covid19_ReactJs.git" },
+							highlights: ["Live API integration", "Map and dashboard UI", "Responsive component design"]
+						},
+						{
+							id: "instagram-laravel",
+							title: "Instagram Clone using Laravel",
+							oneLiner: "Full-stack social app prototype with Laravel and MySQL.",
+							description: "Instagram-like project built with Laravel, raw PHP, MySQL, and frontend styling to practice full-stack flow.",
+							thumbnail: "images/img-04.jpg",
+							categories: ["Full-Stack"],
+							stack: ["Laravel", "PHP", "MySQL", "HTML", "CSS"],
+							links: { github: "https://github.com/J-Amin1011101/Instagram-clone-using-laravel-1st-project-.git" },
+							highlights: ["MVC practice", "Database-backed feed flow", "Full-stack implementation"]
+						},
+						{
+							id: "iot-monitor",
+							title: "IoT Health and Location Monitor",
+							oneLiner: "Sensor prototype for heart-rate and GPS tracking.",
+							description: "Arduino prototype integrating sensor readings and location monitoring for real-time insight workflows.",
+							thumbnail: "images/img-02.PNG",
+							categories: ["Mobile", "Full-Stack"],
+							stack: ["Arduino", "C/C++", "Sensors", "Android"],
+							links: { live: "https://youtu.be/7-0lVgUPkps" },
+							highlights: ["Sensor integration", "Real-time readings", "Prototype validation"]
+						},
+						{
+							id: "video-editing",
+							title: "Creative Video Editing",
+							oneLiner: "Edited game frag movies with motion and effects.",
+							description: "Produced gaming highlights and motion edits with Sony Vegas, focused on pacing, transitions, and visual impact.",
+							thumbnail: "images/csgo-02.jpg",
+							categories: ["Teaching", "Full-Stack"],
+							stack: ["Sony Vegas", "Motion Editing", "Post Production"],
+							links: { live: "https://www.youtube.com/watch?v=Yi1gFgvjBjk&list=PL7Up2Ymfp3va_Xdw3GfKvQcfBhCF4DlaV&ab_channel=JawadAmin" },
+							highlights: ["Storyboarding", "Edit timing", "Visual effects workflow"]
+						}
+					];
+
+					const categories = ["All", "Cloud", "AI/Search", "Full-Stack", "Teaching", "Mobile"];
+					let activeCategory = "All";
+					let searchQuery = "";
+
+					const filterWrap = document.getElementById("ph-filter");
+					const featuredWrap = document.getElementById("ph-featured");
+					const gridWrap = document.getElementById("ph-grid");
+					const countEl = document.getElementById("ph-count");
+					const searchInput = document.getElementById("ph-search");
+
+					const modal = document.createElement("div");
+					modal.className = "ph-modal";
+					modal.innerHTML = `
+						<div class="ph-modal-card">
+							<div class="ph-modal-top">
+								<strong><span id="ph-modal-title"></span></strong>
+								<button class="ph-close" type="button" id="ph-modal-close">Close</button>
+							</div>
+							<div class="ph-modal-body">
+								<div class="ph-modal-img"><img id="ph-modal-image" src="" alt=""></div>
+								<div>
+									<p id="ph-modal-line" class="ph-muted" style="margin:0;"></p>
+									<p id="ph-modal-desc" style="margin:0.6rem 0 0;"></p>
+									<div id="ph-modal-tags" class="ph-tags"></div>
+									<p style="margin:0.8rem 0 0.35rem;"><strong>Highlights</strong></p>
+									<ul id="ph-modal-highlights" class="ph-muted" style="margin:0; padding-left:1.1rem;"></ul>
+									<div id="ph-modal-actions" class="ph-actions"></div>
+								</div>
+							</div>
+						</div>
+					`;
+					document.body.appendChild(modal);
+
+					function createButtons() {
+						filterWrap.innerHTML = "";
+						categories.forEach(function (cat) {
+							const btn = document.createElement("button");
+							btn.textContent = cat;
+							if (cat === activeCategory) btn.classList.add("active");
+							btn.addEventListener("click", function () {
+								activeCategory = cat;
+								createButtons();
+								render();
+							});
+							filterWrap.appendChild(btn);
+						});
+					}
+
+					function matches(project) {
+						const catMatch = activeCategory === "All" || project.categories.indexOf(activeCategory) !== -1;
+						if (!catMatch) return false;
+						if (!searchQuery) return true;
+						const hay = [project.title, project.oneLiner, project.description].concat(project.stack).concat(project.categories).join(" ").toLowerCase();
+						return hay.indexOf(searchQuery) !== -1;
+					}
+
+					function linkButton(href, label, main) {
+						return href ? '<a class="ph-btn ' + (main ? "main" : "") + '" href="' + href + '" target="_blank" rel="noreferrer">' + label + ' <i class="fas fa-external-link-alt"></i></a>' : "";
+					}
+
+					function projectCard(p, featured) {
+						const tags = p.stack.slice(0, featured ? 6 : 4).map(function (s) {
+							return '<span class="ph-tag">' + s + '</span>';
+						}).join("");
+						return `
+							<article class="ph-card" data-id="${p.id}">
+								<div class="ph-thumb-wrap">
+									<img src="${p.thumbnail}" alt="${p.title}" loading="lazy" />
+									${p.featured ? '<span class="ph-badge ph-badge-main"><i class="fas fa-star"></i> Featured</span>' : ""}
+									<span class="ph-badge ph-badge-sec">Quick view</span>
+								</div>
+								<div class="ph-card-body">
+									<h3 class="ph-card-title">${p.title}</h3>
+									<p class="ph-card-line">${p.oneLiner}</p>
+									<div class="ph-tags">${tags}</div>
+									<div class="ph-actions">
+										<button type="button" class="ph-btn main" data-open="${p.id}">Quick view <i class="fas fa-arrow-right"></i></button>
+										${linkButton(p.links.live, "Live")}
+										${linkButton(p.links.github, "GitHub")}
+									</div>
+								</div>
+							</article>
+						`;
+					}
+
+					function openModal(project) {
+						document.getElementById("ph-modal-title").textContent = project.title;
+						document.getElementById("ph-modal-image").src = project.thumbnail;
+						document.getElementById("ph-modal-image").alt = project.title;
+						document.getElementById("ph-modal-line").textContent = project.oneLiner;
+						document.getElementById("ph-modal-desc").textContent = project.description;
+						document.getElementById("ph-modal-tags").innerHTML = project.stack.map(function (s) {
+							return '<span class="ph-tag">' + s + '</span>';
+						}).join("");
+						document.getElementById("ph-modal-highlights").innerHTML = project.highlights.map(function (h) {
+							return "<li>" + h + "</li>";
+						}).join("");
+						document.getElementById("ph-modal-actions").innerHTML =
+							linkButton(project.links.live, "Live Demo", true) +
+							linkButton(project.links.github, "GitHub") +
+							linkButton(project.links.caseStudy, "Case Study");
+						modal.classList.add("open");
+					}
+
+					function render() {
+						const filtered = projects.filter(matches);
+						const featured = projects.filter(function (p) { return p.featured; });
+						featuredWrap.innerHTML = featured.map(function (p) { return projectCard(p, true); }).join("");
+						gridWrap.innerHTML = filtered.map(function (p) { return projectCard(p, false); }).join("");
+						countEl.textContent = "Showing " + filtered.length + " item(s)";
+
+						document.querySelectorAll("[data-open]").forEach(function (btn) {
+							btn.addEventListener("click", function () {
+								const id = btn.getAttribute("data-open");
+								const p = projects.find(function (x) { return x.id === id; });
+								if (p) openModal(p);
+							});
+						});
+
+						document.querySelectorAll(".ph-card").forEach(function (card) {
+							card.addEventListener("mousemove", function (e) {
+								const r = card.getBoundingClientRect();
+								const px = (e.clientX - r.left) / r.width;
+								const py = (e.clientY - r.top) / r.height;
+								const ry = (px - 0.5) * 5;
+								const rx = -(py - 0.5) * 4;
+								card.style.transform = "perspective(900px) rotateX(" + rx + "deg) rotateY(" + ry + "deg)";
+							});
+							card.addEventListener("mouseleave", function () {
+								card.style.transform = "";
+							});
+						});
+					}
+
+					searchInput.addEventListener("input", function (e) {
+						searchQuery = e.target.value.trim().toLowerCase();
+						render();
+					});
+
+					document.getElementById("ph-modal-close").addEventListener("click", function () {
+						modal.classList.remove("open");
+					});
+					modal.addEventListener("click", function (e) {
+						if (e.target === modal) modal.classList.remove("open");
+					});
+
+					createButtons();
+					render();
+				})();
+			</script>
 
 	</body>
 </html>
