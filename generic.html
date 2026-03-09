@@ -18,6 +18,8 @@
 			.about-hybrid .ah-subtitle { margin: 0.5rem 0 0; color: #4b5563; }
 			.about-hybrid .ah-grid { display: grid; gap: 1rem; }
 			.about-hybrid .ah-hero { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+			.about-hybrid .ah-cred { margin-top: 0.9rem; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+			.about-hybrid .ah-cred-item { padding: 0.26rem 0.62rem; border-radius: 0.55rem; font-size: 0.72rem; font-weight: 700; border: 1px solid rgba(91,124,180,.35); background: rgba(255,255,255,.52); color: #334560; }
 			.about-hybrid .ah-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
 			.about-hybrid .ah-card-pad { padding: 1.25rem; }
 			.about-hybrid .ah-headshot { width: 96px; height: 96px; border-radius: 999px; object-fit: cover; border: 2px solid #e5e7eb; }
@@ -30,6 +32,7 @@
 			.about-hybrid .ah-btn-soft { background: #f3f4f6; color: #111827; }
 			.about-hybrid .ah-btn-link { background: #fff; color: #111827; }
 			.about-hybrid .ah-kicker { color: #6b7280; font-size: 0.84rem; margin-top: 0.25rem; }
+			.about-hybrid .ah-note { display: block; margin-top: 0.35rem; color: #5b6681; font-size: 0.72rem; line-height: 1.35; }
 			.about-hybrid .ah-copy p { margin: 0.5rem 0; color: #374151; }
 			.about-hybrid .ah-three { display: grid; gap: 0.9rem; grid-template-columns: 1fr; margin-top: 1rem; }
 			.about-hybrid .ah-bullets { margin: 0.6rem 0 0; padding-left: 1.1rem; color: #4b5563; }
@@ -87,6 +90,7 @@
 				color: #3e516f;
 			}
 			@keyframes ahFadeUp { from { opacity: 0; transform: translateY(14px);} to { opacity: 1; transform: translateY(0);} }
+			.about-hybrid a:focus-visible { outline: 3px solid rgba(47, 125, 224, 0.7); outline-offset: 3px; border-radius: 0.55rem; }
 			@media screen and (min-width: 900px) {
 				.about-hybrid .ah-hero { grid-template-columns: 330px 1fr; align-items: center; }
 				.about-hybrid .ah-three { grid-template-columns: repeat(3,minmax(0,1fr)); }
@@ -95,6 +99,9 @@
 				.about-hybrid .ah-flow { grid-template-columns: repeat(5,minmax(0,1fr)); }
 				.about-hybrid .ah-two { grid-template-columns: repeat(2,minmax(0,1fr)); }
 				.about-hybrid .ah-title { font-size: 2.4rem; }
+			}
+			@media screen and (max-width: 560px) {
+				.about-hybrid .ah-cred-item { font-size: 0.68rem; }
 			}
 		</style>
 	</head>
@@ -119,7 +126,7 @@
 							
 							<li><a href="https://www.facebook.com/jawad.amin.35/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 							<li><a href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-							<li><a href="https://github.com/Jawad-CapabilityWise" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/J-Amin1011101" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
@@ -127,7 +134,7 @@
 					<div id="main">
 
 						<!-- Post -->
-							<section class="post about-hybrid" id="about">
+							<section class="post about-hybrid" id="about" aria-labelledby="about-heading">
 								<div class="ah-hero ah-anim">
 									<article class="ah-card">
 										<div class="ah-card-pad">
@@ -147,12 +154,12 @@
 											</div>
 											<div class="ah-actions">
 												<a class="ah-btn ah-btn-link" href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
-												<a class="ah-btn ah-btn-link" href="https://github.com/Jawad-CapabilityWise" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
+												<a class="ah-btn ah-btn-link" href="https://github.com/J-Amin1011101" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
 											</div>
 										</div>
 									</article>
 									<div class="ah-copy">
-										<h1 class="ah-title">Jawad Amin</h1>
+										<h1 id="about-heading" class="ah-title">Jawad Amin</h1>
 										<p class="ah-subtitle">Cloud &amp; Full-Stack Engineer • AI-Driven Solutions • Educator</p>
 										<p>I build cloud-native, full-stack systems and AI-powered search tools that turn messy information into clear decisions.</p>
 										<p>I combine engineering depth with real-world delivery, teaching developers, supporting users, and improving operations.</p>
@@ -161,6 +168,11 @@
 											<a class="ah-btn ah-btn-link" href="#timeline">Experience Timeline</a>
 										</div>
 									</div>
+								</div>
+								<div class="ah-cred" aria-label="Credibility highlights">
+									<span class="ah-cred-item">Deloitte-sponsored capstone delivery</span>
+									<span class="ah-cred-item">Handover completed to stakeholder team</span>
+									<span class="ah-cred-item">Cloud + AI + Full-stack execution</span>
 								</div>
 
 								<div class="ah-anim ah-anim-2" style="margin-top:2rem;">
@@ -269,12 +281,12 @@
 									<p class="ah-eyebrow">Background</p>
 									<h2 style="margin:0.3rem 0 0;">Education &amp; credentials</h2>
 									<div class="ah-two">
-										<article class="ah-card ah-card-pad"><h3><i class="fas fa-graduation-cap"></i> Master of Information Technology &amp; Systems (Distinction)</h3><p class="ah-kicker">University of Canberra • Cloud specialisation • 2024</p></article>
-										<article class="ah-card ah-card-pad"><h3><i class="fas fa-graduation-cap"></i> Bachelor of Computer Science</h3><p class="ah-kicker">BRAC University • 2018</p></article>
+										<article class="ah-card ah-card-pad"><h3><i class="fas fa-graduation-cap"></i> Master of Information Technology &amp; Systems (Distinction)</h3><p class="ah-kicker">University of Canberra • Cloud specialisation • 2024</p><span class="ah-note">Verified academic award and completion record.</span></article>
+										<article class="ah-card ah-card-pad"><h3><i class="fas fa-graduation-cap"></i> Bachelor of Computer Science</h3><p class="ah-kicker">BRAC University • 2018</p><span class="ah-note">Accredited program completion.</span></article>
 									</div>
 									<article class="ah-card ah-card-pad" style="margin-top:0.9rem;">
 										<h3><i class="fas fa-award"></i> Certificates &amp; badges</h3>
-										<div class="ah-certs"><span class="ah-chip">AWS DevOps Engineer (Course/Badge)</span><span class="ah-chip">CCNA (Foundations)</span><span class="ah-chip">freeCodeCamp (JS/React/Web)</span></div>
+										<div class="ah-certs"><span class="ah-chip">AWS DevOps Engineer (Course/Badge)</span><span class="ah-chip">CCNA (Foundations)</span><span class="ah-chip">freeCodeCamp (JS/React/Web)</span></div><span class="ah-note">Vendor and platform-issued learning credentials.</span>
 									</article>
 								</div>
 
@@ -285,9 +297,9 @@
 											<h3 style="margin:0.3rem 0 0;">Let us build something that ships.</h3>
 											<p class="ah-subtitle">If you are hiring or collaborating, I can share projects, architecture notes, or a tailored case study.</p>
 											<div class="ah-actions">
-												<a class="ah-btn ah-btn-primary" href="mailto:jawadamin123456@gmail.com"><i class="fas fa-envelope"></i> Email me</a>
+												<a class="ah-btn ah-btn-primary" href="mailto:jawadamin123456@gmail.com"><i class="fas fa-envelope"></i> Book a Project Discussion</a>
 												<a class="ah-btn ah-btn-link" href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
-												<a class="ah-btn ah-btn-link" href="https://github.com/Jawad-CapabilityWise" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
+												<a class="ah-btn ah-btn-link" href="https://github.com/J-Amin1011101" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
 											</div>
 										</div>
 										<div class="ah-split-b">
@@ -323,7 +335,7 @@
 				
 				<li><a href="https://www.facebook.com/jawad.amin.35/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
 				<li><a href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
-				<li><a href="https://github.com/Jawad-CapabilityWise" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+				<li><a href="https://github.com/J-Amin1011101" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 			</ul>
 		</section>
 	</section>
