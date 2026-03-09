@@ -56,6 +56,7 @@
 			}
 			.hiw .hw-wrap { padding: 2rem 1.2rem; max-width: 84rem; margin: 0 auto; }
 			.hiw h1, .hiw h2, .hiw h3, .hiw p { color: inherit; }
+			.hiw p { line-height: 1.55; }
 			.hiw .hw-topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: .95rem; flex-wrap: wrap; }
 			.hiw .hw-name { margin: 0; font-size: 2.35rem; line-height: 1.06; }
 			.hiw .hw-name span { color: var(--blue); }
@@ -104,7 +105,7 @@
 			.hiw .hw-hero { display: grid; grid-template-columns: 1fr; gap: .95rem; margin-top: 1.2rem; align-items: stretch; }
 			.hiw .hw-left h2 { margin: 0 0 .6rem; font-size: 2.7rem; line-height: 1.08; letter-spacing: .01em; }
 			.hiw .hw-left h2 span { color: var(--cyan); }
-			.hiw .hw-lead { font-size: 1.12rem; color: #5c6480; max-width: 34rem; line-height: 1.45; }
+			.hiw .hw-lead { font-size: 1.08rem; color: #4f586f; max-width: 38rem; line-height: 1.55; }
 			.hiw .hw-pill { margin-top: .72rem; display: inline-flex; gap: .45rem; align-items: center; padding: .5rem .72rem; border-radius: 999px; border: 1px solid rgba(94,123,168,.35); background: rgba(255,255,255,.42); flex-wrap: wrap; }
 			.hiw .hw-pill-item {
 				font-weight: 700;
@@ -196,12 +197,11 @@
 			.hiw .hw-card {
 				border: 1px solid rgba(102, 134, 184, .35);
 				border-radius: .95rem;
-				padding: 1rem .85rem 1.1rem;
+				padding: 1.05rem .95rem 1.15rem;
 				background: rgba(255, 255, 255, .52);
 				transition: transform .25s ease, box-shadow .28s ease, border-color .25s ease;
 				position: relative;
 				overflow: hidden;
-				animation: hwCardFloat 5.4s ease-in-out infinite;
 			}
 			.hiw .hw-card::before {
 				content: "";
@@ -237,13 +237,8 @@
 			.hiw .hw-cards .hw-card:nth-child(4)::after { background: #d280ff; }
 			.hiw .hw-cards .hw-card:nth-child(5) { box-shadow: inset 0 0 0 1px rgba(255, 169, 79, .15), 0 0 24px rgba(255, 145, 67, .16); }
 			.hiw .hw-cards .hw-card:nth-child(5)::after { background: #ffa65e; }
-			.hiw .hw-cards .hw-card:nth-child(1) { animation-delay: 0s; }
-			.hiw .hw-cards .hw-card:nth-child(2) { animation-delay: .2s; }
-			.hiw .hw-cards .hw-card:nth-child(3) { animation-delay: .4s; }
-			.hiw .hw-cards .hw-card:nth-child(4) { animation-delay: .6s; }
-			.hiw .hw-cards .hw-card:nth-child(5) { animation-delay: .8s; }
-			.hiw .hw-card h3 { margin: 0; font-size: 1rem; line-height: 1.3; overflow-wrap: anywhere; }
-			.hiw .hw-card p { margin: .3rem 0 0; color: var(--muted); line-height: 1.35; overflow-wrap: anywhere; }
+			.hiw .hw-card h3 { margin: 0 0 .32rem; font-size: 1rem; line-height: 1.36; overflow-wrap: anywhere; }
+			.hiw .hw-card p { margin: 0; color: #535b71; line-height: 1.5; overflow-wrap: anywhere; }
 			.hiw .hw-card h3, .hiw .hw-card p { min-height: 2.15rem; }
 			.hiw .hw-stats { margin-top: .75rem; display: grid; grid-template-columns: 1fr; gap: .62rem; color: #36415b; }
 			.hiw .hw-stat {
@@ -275,6 +270,11 @@
 			.hiw .hw-bottom .tertiary { color: #2d3c5a; border: 1px solid rgba(91,124,180,.42); background: rgba(255,255,255,.4); }
 			.hiw .hw-bottom a { transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease; }
 			.hiw .hw-bottom a:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(57, 102, 168, .2); border-color: rgba(53,146,227,.72); }
+			.hiw a:focus-visible {
+				outline: 3px solid rgba(47, 125, 224, .7);
+				outline-offset: 3px;
+				border-radius: .55rem;
+			}
 			.hiw .hw-bottom .primary { position: relative; overflow: hidden; }
 			.hiw .hw-bottom .primary::after {
 				content: "";
@@ -296,10 +296,6 @@
 			@keyframes hwNodeFloat {
 				0%, 100% { transform: translateY(0); }
 				50% { transform: translateY(-4px); }
-			}
-			@keyframes hwCardFloat {
-				0%, 100% { transform: translateY(0); }
-				50% { transform: translateY(-2px); }
 			}
 			@keyframes hwCoreGlow {
 				0%, 100% { box-shadow: 0 0 30px rgba(40, 130, 210, .22); }
@@ -364,6 +360,9 @@
 				.hiw .hw-btn { width: 100%; justify-content: center; }
 				.hiw .hw-process { min-height: 18.2rem; }
 				.hiw .hw-node { font-size: .72rem; }
+				.hiw .hw-card { padding: .88rem .78rem .94rem; }
+				.hiw .hw-card h3 { margin: 0 0 .22rem; font-size: .94rem; line-height: 1.3; }
+				.hiw .hw-card p { font-size: .84rem; line-height: 1.42; }
 				.hiw .hw-bottom a { width: 100%; text-align: center; }
 			}
 			@media (prefers-reduced-motion: reduce) {
@@ -400,7 +399,7 @@
 						<ul class="icons">
 							<li><a href="https://www.facebook.com/jawad.amin.35/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 							<li><a href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-							<li><a href="https://github.com/Jawad-CapabilityWise" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/J-Amin1011101" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
@@ -414,9 +413,9 @@
 										<p class="hw-role">Cloud • AI • Full-Stack Engineer</p>
 									</div>
 									<div class="hw-nav">
-										<a class="hw-btn pulse" href="index.html">Projects</a>
+										<a class="hw-btn" href="index.html">Projects</a>
 										<a class="hw-btn ghost" href="#footer">Contact</a>
-										<a class="hw-btn ghost pulse" href="generic.html">About Me</a>
+										<a class="hw-btn ghost" href="generic.html">About Me</a>
 										<a class="hw-btn cta pulse" href="Jawad_Amin_Tech_Resume_Polished.html">Download Resume</a>
 									</div>
 								</div>
@@ -424,7 +423,7 @@
 								<div class="hw-hero">
 									<div class="hw-left">
 										<h2>How I <span>Build</span> &amp; Deliver</h2>
-										<p class="hw-lead">Turning ideas into scalable, cloud-native solutions that are fast, reliable, and impactful.</p>
+										<p class="hw-lead">I design and ship cloud-native products with clear requirements, secure architecture, measurable outcomes, and reliable delivery cycles.</p>
 										<div class="hw-pill">
 											<span class="hw-pill-item hw-pill-fast">Fast</span>
 											<span class="hw-pill-item hw-pill-reliable">Reliable</span>
@@ -448,11 +447,11 @@
 								</div>
 
 								<div class="hw-cards">
-									<div class="hw-card"><h3><i class="fas fa-chess-knight"></i> Strategy First</h3><p>Problem > Solution</p></div>
-									<div class="hw-card"><h3><i class="fas fa-cloud"></i> Cloud Architecture</h3><p>Scalable &amp; Secure</p></div>
-									<div class="hw-card"><h3><i class="fas fa-sync-alt"></i> Agile Delivery</h3><p>Iterate &amp; Improve</p></div>
-									<div class="hw-card"><h3><i class="fas fa-chart-line"></i> Data-Driven</h3><p>Insights &amp; Impact</p></div>
-									<div class="hw-card"><h3><i class="fas fa-handshake"></i> Collaboration</h3><p>Teams &amp; Leadership</p></div>
+									<div class="hw-card"><h3><i class="fas fa-chess-knight"></i> Strategy First</h3><p>Requirements aligned before implementation.</p></div>
+									<div class="hw-card"><h3><i class="fas fa-cloud"></i> Cloud Architecture</h3><p>Secure, scalable, and cost-aware systems.</p></div>
+									<div class="hw-card"><h3><i class="fas fa-sync-alt"></i> Agile Delivery</h3><p>Short iterations with predictable releases.</p></div>
+									<div class="hw-card"><h3><i class="fas fa-chart-line"></i> Data-Driven</h3><p>Metrics guide priorities and improvements.</p></div>
+									<div class="hw-card"><h3><i class="fas fa-handshake"></i> Collaboration</h3><p>Clear handoffs across teams and stakeholders.</p></div>
 								</div>
 
 								<div class="hw-stats">
@@ -466,7 +465,7 @@
 									<a class="primary" href="mailto:jawadamin123456@gmail.com">Let's Build Something</a>
 									<a class="secondary" href="index.html">View Case Studies</a>
 									<a class="tertiary" href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" target="_blank" rel="noreferrer">LinkedIn</a>
-									<a class="tertiary" href="https://github.com/Jawad-CapabilityWise" target="_blank" rel="noreferrer">GitHub</a>
+									<a class="tertiary" href="https://github.com/J-Amin1011101" target="_blank" rel="noreferrer">GitHub</a>
 								</div>
 							</div>
 						</section>
@@ -492,7 +491,7 @@
 							<ul class="icons alt">
 								<li><a href="https://www.facebook.com/jawad.amin.35/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
 								<li><a href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
-								<li><a href="https://github.com/Jawad-CapabilityWise" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://github.com/J-Amin1011101" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 							</ul>
 						</section>
 					</section>

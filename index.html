@@ -131,6 +131,7 @@
 				display: grid;
 				gap: 0.9rem;
 				margin-top: 0.8rem;
+				align-items: stretch;
 			}
 			.ph-featured {
 				grid-template-columns: 1fr;
@@ -145,7 +146,9 @@
 				overflow: hidden;
 				box-shadow: 0 8px 20px rgba(56, 94, 151, 0.12);
 				transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-				transform-style: preserve-3d;
+				display: flex;
+				flex-direction: column;
+				height: 100%;
 			}
 			.ph-card:hover {
 				transform: translateY(-4px);
@@ -187,23 +190,43 @@
 				top: 0.6rem;
 			}
 			.ph-card-body {
-				padding: 0.95rem;
+				padding: 1.05rem 1rem 1.1rem;
+				display: flex;
+				flex-direction: column;
+				gap: 0.62rem;
+				flex: 1;
 			}
 			.ph-card-title {
 				margin: 0;
 				font-size: 1.02rem;
-				line-height: 1.25;
+				line-height: 1.35;
 			}
 			.ph-card-line {
-				margin: 0.4rem 0 0;
+				margin: 0;
 				color: #5f6474;
 				font-size: 0.85rem;
+				line-height: 1.55;
+			}
+			.ph-meta {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.42rem;
+				margin-top: 0.1rem;
+			}
+			.ph-meta-item {
+				padding: 0.2rem 0.48rem;
+				border-radius: 0.45rem;
+				font-size: 0.68rem;
+				font-weight: 700;
+				background: rgba(238, 242, 249, 0.95);
+				color: #3b4a66;
+				border: 1px solid rgba(126, 149, 185, 0.28);
 			}
 			.ph-tags {
 				display: flex;
 				flex-wrap: wrap;
 				gap: 0.35rem;
-				margin-top: 0.7rem;
+				margin-top: 0.35rem;
 			}
 			.ph-tag {
 				padding: 0.22rem 0.55rem;
@@ -219,6 +242,7 @@
 				flex-wrap: wrap;
 				gap: 0.45rem;
 				margin-top: 0.8rem;
+				margin-top: auto;
 			}
 			.ph-btn {
 				display: inline-flex;
@@ -238,6 +262,13 @@
 				border-color: transparent;
 				background: linear-gradient(90deg, #2f7de0, #31bae6);
 				color: #fff;
+			}
+			.ph-search input:focus-visible,
+			.ph-filter button:focus-visible,
+			.ph-btn:focus-visible,
+			.ph-close:focus-visible {
+				outline: 3px solid rgba(47, 125, 224, 0.7);
+				outline-offset: 2px;
 			}
 			.ph-modal {
 				position: fixed;
@@ -282,6 +313,9 @@
 				gap: 1rem;
 				padding: 1rem;
 			}
+			.ph-modal-body p {
+				line-height: 1.5;
+			}
 			.ph-modal-img {
 				aspect-ratio: 16 / 9;
 				border-radius: 0.8rem;
@@ -295,9 +329,32 @@
 			.ph-muted {
 				color: #5f6474;
 			}
+			.ph-modal-context {
+				margin-top: 0.7rem;
+			}
+			.ph-modal-actions {
+				margin-top: 1rem;
+				padding-top: 0.7rem;
+				border-top: 1px solid rgba(93, 134, 204, 0.2);
+			}
 			#ph-count {
 				font-size: 0.8rem;
 				color: #5f6474;
+			}
+			.ph-empty {
+				margin-top: 0.9rem;
+				padding: 1rem;
+				border-radius: 0.8rem;
+				background: rgba(255, 255, 255, 0.6);
+				border: 1px solid rgba(102, 134, 184, 0.28);
+				color: #4c5a75;
+			}
+			@media (prefers-reduced-motion: reduce) {
+				.ph-card,
+				.ph-btn,
+				.ph-filter button {
+					transition: none !important;
+				}
 			}
 			@media screen and (min-width: 860px) {
 				.ph-featured {
@@ -308,6 +365,43 @@
 				}
 				.ph-modal-body {
 					grid-template-columns: 1.05fr 0.95fr;
+				}
+			}
+			@media screen and (max-width: 560px) {
+				.ph-card-body {
+					padding: 0.88rem 0.82rem 0.92rem;
+					gap: 0.45rem;
+				}
+				.ph-card-title {
+					font-size: 0.96rem;
+					line-height: 1.28;
+				}
+				.ph-card-line {
+					font-size: 0.81rem;
+					line-height: 1.45;
+				}
+				.ph-meta {
+					gap: 0.3rem;
+				}
+				.ph-meta-item {
+					font-size: 0.64rem;
+					padding: 0.18rem 0.42rem;
+				}
+				.ph-tags {
+					gap: 0.28rem;
+					margin-top: 0.22rem;
+				}
+				.ph-tag {
+					font-size: 0.64rem;
+					padding: 0.18rem 0.45rem;
+				}
+				.ph-actions {
+					margin-top: 0.55rem;
+					gap: 0.35rem;
+				}
+				.ph-btn {
+					font-size: 0.72rem;
+					padding: 0.4rem 0.58rem;
 				}
 			}
 		</style>
@@ -343,7 +437,7 @@
 							
 							<li><a href="https://www.facebook.com/jawad.amin.35/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 							<li><a href="https://www.linkedin.com/in/jawad-amin-a45a501b9/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-							<li><a href="https://github.com/Jawad-CapabilityWise" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/J-Amin1011101" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
@@ -354,11 +448,11 @@
 								<div>
 									<p class="ph-eyebrow">Projects</p>
 									<h2 class="ph-title">Work I am proud of</h2>
-									<p class="ph-sub">Filter by category, search by keyword, and quick-view each project without leaving this page.</p>
+									<p class="ph-sub">Explore selected work by domain, outcomes, and delivery context with quick access to demos and source.</p>
 								</div>
 								<div class="ph-search">
 									<i class="fas fa-search"></i>
-									<input id="ph-search" type="text" placeholder="Search projects, stack, keywords..." />
+									<input id="ph-search" type="text" placeholder="Search projects, stack, keywords..." aria-label="Search projects" />
 								</div>
 							</div>
 
@@ -427,10 +521,15 @@
 						{
 							id: "smartresearch",
 							title: "SmartResearch - AI Semantic Search",
-							oneLiner: "AI semantic search prototype to rank credible research papers faster.",
+							oneLiner: "Research discovery was slow and noisy across large paper sets.",
+							outcome: "Delivered semantic ranking with relevance/credibility scoring for faster shortlisting.",
 							description: "University capstone-style AI search project focused on semantic matching, relevance scoring, and practical research discovery UX.",
 							thumbnail: "images/img-01.jpg",
 							featured: true,
+							status: "Prototype",
+							role: "Lead Developer",
+							timeline: "2023-2024",
+							team: "Team of 4",
 							categories: ["AI/Search", "Full-Stack"],
 							stack: ["Python", "NLP", "React", "MongoDB", "Ranking"],
 							links: { github: "https://github.com/Jawad-CapabilityWise" },
@@ -439,10 +538,15 @@
 						{
 							id: "capabilitywise-dev",
 							title: "Capability Wise - Cloud Product Engineering",
-							oneLiner: "Angular and AWS-driven product work with reliable API workflows.",
+							oneLiner: "Needed reliable feature delivery across UI, APIs, and cloud workflows.",
+							outcome: "Shipped production-facing improvements with stronger consistency and reliability.",
 							description: "Hands-on product engineering across frontend, APIs, and cloud services, with focus on usability, consistency, and delivery reliability.",
 							thumbnail: "images/jawad-about-uploaded.jpeg",
 							featured: true,
+							status: "Production",
+							role: "Software Developer",
+							timeline: "2025-Present",
+							team: "Cross-functional",
 							categories: ["Cloud", "Full-Stack"],
 							stack: ["TypeScript", "AWS", "Node.js", "DynamoDB"],
 							links: { github: "https://github.com/Jawad-CapabilityWise" },
@@ -451,9 +555,14 @@
 						{
 							id: "covid-react",
 							title: "Covid-19 Live Status",
-							oneLiner: "Live status dashboard using public APIs and map integration.",
+							oneLiner: "Public updates needed a clear, live dashboard view.",
+							outcome: "Built an interactive map/dashboard for live monitoring and quick updates.",
 							description: "Built with React and API integrations to visualize live Covid updates with map views and responsive components.",
 							thumbnail: "images/img-03.jpg",
+							status: "Live Demo",
+							role: "Full-Stack Developer",
+							timeline: "2020",
+							team: "Solo",
 							categories: ["Full-Stack"],
 							stack: ["React", "Node.js", "JavaScript", "Google Maps API"],
 							links: { live: "https://codesandbox.io/s/zealous-lovelace-6cs9o", github: "https://github.com/J-Amin1011101/Covid19_ReactJs.git" },
@@ -462,9 +571,14 @@
 						{
 							id: "instagram-laravel",
 							title: "Instagram Clone using Laravel",
-							oneLiner: "Full-stack social app prototype with Laravel and MySQL.",
+							oneLiner: "Needed end-to-end practice for social product architecture.",
+							outcome: "Implemented core social feed workflows using Laravel and MySQL.",
 							description: "Instagram-like project built with Laravel, raw PHP, MySQL, and frontend styling to practice full-stack flow.",
 							thumbnail: "images/img-04.jpg",
+							status: "Archived",
+							role: "Full-Stack Developer",
+							timeline: "2019",
+							team: "Solo",
 							categories: ["Full-Stack"],
 							stack: ["Laravel", "PHP", "MySQL", "HTML", "CSS"],
 							links: { github: "https://github.com/J-Amin1011101/Instagram-clone-using-laravel-1st-project-.git" },
@@ -473,9 +587,14 @@
 						{
 							id: "iot-monitor",
 							title: "IoT Health and Location Monitor",
-							oneLiner: "Sensor prototype for heart-rate and GPS tracking.",
+							oneLiner: "Required real-time vitals/location capture from low-cost hardware.",
+							outcome: "Validated an Arduino-based prototype for health/location monitoring flow.",
 							description: "Arduino prototype integrating sensor readings and location monitoring for real-time insight workflows.",
 							thumbnail: "images/img-02.PNG",
+							status: "Prototype",
+							role: "Embedded Developer",
+							timeline: "2018",
+							team: "Team of 3",
 							categories: ["Mobile", "Full-Stack"],
 							stack: ["Arduino", "C/C++", "Sensors", "Android"],
 							links: { live: "https://youtu.be/7-0lVgUPkps" },
@@ -484,9 +603,14 @@
 						{
 							id: "video-editing",
 							title: "Creative Video Editing",
-							oneLiner: "Edited game frag movies with motion and effects.",
+							oneLiner: "Needed engaging tutorial/highlight content for learning and community.",
+							outcome: "Produced structured edits with clearer pacing and visual storytelling.",
 							description: "Produced gaming highlights and motion edits with Sony Vegas, focused on pacing, transitions, and visual impact.",
 							thumbnail: "images/csgo-02.jpg",
+							status: "Published",
+							role: "Content Producer",
+							timeline: "2017-2019",
+							team: "Solo",
 							categories: ["Teaching", "Full-Stack"],
 							stack: ["Sony Vegas", "Motion Editing", "Post Production"],
 							links: { live: "https://www.youtube.com/watch?v=Yi1gFgvjBjk&list=PL7Up2Ymfp3va_Xdw3GfKvQcfBhCF4DlaV&ab_channel=JawadAmin" },
@@ -516,11 +640,12 @@
 								<div class="ph-modal-img"><img id="ph-modal-image" src="" alt=""></div>
 								<div>
 									<p id="ph-modal-line" class="ph-muted" style="margin:0;"></p>
-									<p id="ph-modal-desc" style="margin:0.6rem 0 0;"></p>
+									<p id="ph-modal-desc" style="margin:0.45rem 0 0;"></p>
+									<div id="ph-modal-context" class="ph-meta ph-modal-context"></div>
 									<div id="ph-modal-tags" class="ph-tags"></div>
-									<p style="margin:0.8rem 0 0.35rem;"><strong>Highlights</strong></p>
+									<p style="margin:0.9rem 0 0.35rem;"><strong>Highlights</strong></p>
 									<ul id="ph-modal-highlights" class="ph-muted" style="margin:0; padding-left:1.1rem;"></ul>
-									<div id="ph-modal-actions" class="ph-actions"></div>
+									<div id="ph-modal-actions" class="ph-actions ph-modal-actions"></div>
 								</div>
 							</div>
 						</div>
@@ -533,6 +658,7 @@
 							const btn = document.createElement("button");
 							btn.textContent = cat;
 							if (cat === activeCategory) btn.classList.add("active");
+							btn.setAttribute("aria-pressed", cat === activeCategory ? "true" : "false");
 							btn.addEventListener("click", function () {
 								activeCategory = cat;
 								createButtons();
@@ -546,7 +672,11 @@
 						const catMatch = activeCategory === "All" || project.categories.indexOf(activeCategory) !== -1;
 						if (!catMatch) return false;
 						if (!searchQuery) return true;
-						const hay = [project.title, project.oneLiner, project.description].concat(project.stack).concat(project.categories).join(" ").toLowerCase();
+						const hay = [project.title, project.oneLiner, project.outcome, project.description, project.role, project.timeline, project.team, project.status]
+							.concat(project.stack)
+							.concat(project.categories)
+							.join(" ")
+							.toLowerCase();
 						return hay.indexOf(searchQuery) !== -1;
 					}
 
@@ -554,10 +684,25 @@
 						return href ? '<a class="ph-btn ' + (main ? "main" : "") + '" href="' + href + '" target="_blank" rel="noreferrer">' + label + ' <i class="fas fa-external-link-alt"></i></a>' : "";
 					}
 
+					function primaryLink(project) {
+						if (project.links.caseStudy) return { href: project.links.caseStudy, label: "Case Study" };
+						if (project.links.live) return { href: project.links.live, label: "Live Demo" };
+						if (project.links.github) return { href: project.links.github, label: "Source" };
+						return null;
+					}
+
 					function projectCard(p, featured) {
 						const tags = p.stack.slice(0, featured ? 6 : 4).map(function (s) {
 							return '<span class="ph-tag">' + s + '</span>';
 						}).join("");
+						const meta = [
+							'<span class="ph-meta-item">Role: ' + p.role + '</span>',
+							'<span class="ph-meta-item">Timeline: ' + p.timeline + '</span>',
+							'<span class="ph-meta-item">Team: ' + p.team + '</span>',
+							'<span class="ph-meta-item">Status: ' + p.status + '</span>'
+						].join("");
+						const primary = primaryLink(p);
+						const githubSecondary = p.links.github && (!primary || primary.href !== p.links.github);
 						return `
 							<article class="ph-card" data-id="${p.id}">
 								<div class="ph-thumb-wrap">
@@ -567,12 +712,14 @@
 								</div>
 								<div class="ph-card-body">
 									<h3 class="ph-card-title">${p.title}</h3>
-									<p class="ph-card-line">${p.oneLiner}</p>
+									<p class="ph-card-line"><strong>Problem:</strong> ${p.oneLiner}</p>
+									<p class="ph-card-line"><strong>Solution:</strong> ${p.outcome}</p>
+									<div class="ph-meta">${meta}</div>
 									<div class="ph-tags">${tags}</div>
 									<div class="ph-actions">
-										<button type="button" class="ph-btn main" data-open="${p.id}">Quick view <i class="fas fa-arrow-right"></i></button>
-										${linkButton(p.links.live, "Live")}
-										${linkButton(p.links.github, "GitHub")}
+										${primary ? linkButton(primary.href, primary.label, true) : ""}
+										${githubSecondary ? linkButton(p.links.github, "GitHub") : ""}
+										<button type="button" class="ph-btn" data-open="${p.id}" aria-label="Open quick view for ${p.title}">Quick View <i class="fas fa-arrow-right"></i></button>
 									</div>
 								</div>
 							</article>
@@ -583,18 +730,24 @@
 						document.getElementById("ph-modal-title").textContent = project.title;
 						document.getElementById("ph-modal-image").src = project.thumbnail;
 						document.getElementById("ph-modal-image").alt = project.title;
-						document.getElementById("ph-modal-line").textContent = project.oneLiner;
-						document.getElementById("ph-modal-desc").textContent = project.description;
+						document.getElementById("ph-modal-line").textContent = "Problem: " + project.oneLiner;
+						document.getElementById("ph-modal-desc").textContent = "Solution: " + project.outcome + " " + project.description;
+						document.getElementById("ph-modal-context").innerHTML =
+							'<span class="ph-meta-item">Role: ' + project.role + '</span>' +
+							'<span class="ph-meta-item">Timeline: ' + project.timeline + '</span>' +
+							'<span class="ph-meta-item">Team: ' + project.team + '</span>' +
+							'<span class="ph-meta-item">Status: ' + project.status + '</span>';
 						document.getElementById("ph-modal-tags").innerHTML = project.stack.map(function (s) {
 							return '<span class="ph-tag">' + s + '</span>';
 						}).join("");
 						document.getElementById("ph-modal-highlights").innerHTML = project.highlights.map(function (h) {
 							return "<li>" + h + "</li>";
 						}).join("");
+						const primary = primaryLink(project);
 						document.getElementById("ph-modal-actions").innerHTML =
-							linkButton(project.links.live, "Live Demo", true) +
-							linkButton(project.links.github, "GitHub") +
-							linkButton(project.links.caseStudy, "Case Study");
+							(primary ? linkButton(primary.href, primary.label, true) : "") +
+							(project.links.github && (!primary || primary.href !== project.links.github) ? linkButton(project.links.github, "GitHub") : "") +
+							(project.links.caseStudy && (!primary || primary.href !== project.links.caseStudy) ? linkButton(project.links.caseStudy, "Case Study") : "");
 						modal.classList.add("open");
 					}
 
@@ -602,8 +755,10 @@
 						const filtered = projects.filter(matches);
 						const featured = projects.filter(function (p) { return p.featured; });
 						featuredWrap.innerHTML = featured.map(function (p) { return projectCard(p, true); }).join("");
-						gridWrap.innerHTML = filtered.map(function (p) { return projectCard(p, false); }).join("");
-						countEl.textContent = "Showing " + filtered.length + " item(s)";
+						gridWrap.innerHTML = filtered.length
+							? filtered.map(function (p) { return projectCard(p, false); }).join("")
+							: '<div class="ph-empty">No projects match this filter/search. Try another keyword or category.</div>';
+						countEl.textContent = "Showing " + filtered.length + " of " + projects.length + " project(s)";
 
 						document.querySelectorAll("[data-open]").forEach(function (btn) {
 							btn.addEventListener("click", function () {
@@ -613,19 +768,6 @@
 							});
 						});
 
-						document.querySelectorAll(".ph-card").forEach(function (card) {
-							card.addEventListener("mousemove", function (e) {
-								const r = card.getBoundingClientRect();
-								const px = (e.clientX - r.left) / r.width;
-								const py = (e.clientY - r.top) / r.height;
-								const ry = (px - 0.5) * 5;
-								const rx = -(py - 0.5) * 4;
-								card.style.transform = "perspective(900px) rotateX(" + rx + "deg) rotateY(" + ry + "deg)";
-							});
-							card.addEventListener("mouseleave", function () {
-								card.style.transform = "";
-							});
-						});
 					}
 
 					searchInput.addEventListener("input", function (e) {
@@ -638,6 +780,9 @@
 					});
 					modal.addEventListener("click", function (e) {
 						if (e.target === modal) modal.classList.remove("open");
+					});
+					document.addEventListener("keydown", function (e) {
+						if (e.key === "Escape") modal.classList.remove("open");
 					});
 
 					createButtons();
